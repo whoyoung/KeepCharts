@@ -13,7 +13,7 @@ import Foundation
 import CoreGraphics
 
 @objc
-public enum ChartEasingOption: Int
+public enum KeepChartEasingOption: Int
 {
     case linear
     case easeInQuad
@@ -48,9 +48,9 @@ public enum ChartEasingOption: Int
     case easeInOutBounce
 }
 
-public typealias ChartEasingFunctionBlock = ((_ elapsed: TimeInterval, _ duration: TimeInterval) -> Double)
+public typealias KeepChartEasingFunctionBlock = ((_ elapsed: TimeInterval, _ duration: TimeInterval) -> Double)
 
-internal func easingFunctionFromOption(_ easing: ChartEasingOption) -> ChartEasingFunctionBlock
+internal func easingFunctionFromOption(_ easing: KeepChartEasingOption) -> KeepChartEasingFunctionBlock
 {
     switch easing
     {

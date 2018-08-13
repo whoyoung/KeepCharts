@@ -429,7 +429,7 @@ open class KeepPieRadarChartViewBase: KeepChartViewBase
     private var _spinAnimator: KeepAnimator!
     
     /// Applys a spin animation to the Chart.
-    @objc open func spin(duration: TimeInterval, fromAngle: CGFloat, toAngle: CGFloat, easing: ChartEasingFunctionBlock?)
+    @objc open func spin(duration: TimeInterval, fromAngle: CGFloat, toAngle: CGFloat, easing: KeepChartEasingFunctionBlock?)
     {
         if _spinAnimator != nil
         {
@@ -445,7 +445,7 @@ open class KeepPieRadarChartViewBase: KeepChartViewBase
         _spinAnimator.animate(xAxisDuration: duration, easing: easing)
     }
     
-    @objc open func spin(duration: TimeInterval, fromAngle: CGFloat, toAngle: CGFloat, easingOption: ChartEasingOption)
+    @objc open func spin(duration: TimeInterval, fromAngle: CGFloat, toAngle: CGFloat, easingOption: KeepChartEasingOption)
     {
         spin(duration: duration, fromAngle: fromAngle, toAngle: toAngle, easing: easingFunctionFromOption(easingOption))
     }

@@ -1110,7 +1110,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
         yValue: Double,
         axis: KeepYAxis.AxisDependency,
         duration: TimeInterval,
-        easing: ChartEasingFunctionBlock?)
+        easing: KeepChartEasingFunctionBlock?)
     {
         let origin = valueForTouchPoint(
             point: CGPoint(x: viewPortHandler.contentLeft, y: viewPortHandler.contentTop),
@@ -1152,7 +1152,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
         yValue: Double,
         axis: KeepYAxis.AxisDependency,
         duration: TimeInterval,
-        easingOption: ChartEasingOption)
+        easingOption: KeepChartEasingOption)
     {
         zoomAndCenterViewAnimated(scaleX: scaleX, scaleY: scaleY, xValue: xValue, yValue: yValue, axis: axis, duration: duration, easing: easingFunctionFromOption(easingOption))
     }
@@ -1334,7 +1334,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
         yValue: Double,
         axis: KeepYAxis.AxisDependency,
         duration: TimeInterval,
-        easing: ChartEasingFunctionBlock?)
+        easing: KeepChartEasingFunctionBlock?)
     {
         let bounds = valueForTouchPoint(
             point: CGPoint(x: viewPortHandler.contentLeft, y: viewPortHandler.contentTop),
@@ -1369,7 +1369,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
         yValue: Double,
         axis: KeepYAxis.AxisDependency,
         duration: TimeInterval,
-        easingOption: ChartEasingOption)
+        easingOption: KeepChartEasingOption)
     {
         moveViewToAnimated(xValue: xValue, yValue: yValue, axis: axis, duration: duration, easing: easingFunctionFromOption(easingOption))
     }
@@ -1427,7 +1427,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
         yValue: Double,
         axis: KeepYAxis.AxisDependency,
         duration: TimeInterval,
-        easing: ChartEasingFunctionBlock?)
+        easing: KeepChartEasingFunctionBlock?)
     {
         let bounds = valueForTouchPoint(
             point: CGPoint(x: viewPortHandler.contentLeft, y: viewPortHandler.contentTop),
@@ -1462,7 +1462,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
         yValue: Double,
         axis: KeepYAxis.AxisDependency,
         duration: TimeInterval,
-        easingOption: ChartEasingOption)
+        easingOption: KeepChartEasingOption)
     {
         centerViewToAnimated(xValue: xValue, yValue: yValue, axis: axis, duration: duration, easing: easingFunctionFromOption(easingOption))
     }

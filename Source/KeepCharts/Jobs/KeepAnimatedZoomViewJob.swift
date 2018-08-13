@@ -38,7 +38,7 @@ open class KeepAnimatedZoomViewJob: KeepAnimatedViewPortJob
         zoomOriginX: CGFloat,
         zoomOriginY: CGFloat,
         duration: TimeInterval,
-        easing: ChartEasingFunctionBlock?)
+        easing: KeepChartEasingFunctionBlock?)
     {
         super.init(viewPortHandler: viewPortHandler,
             xValue: 0.0,

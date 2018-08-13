@@ -53,8 +53,8 @@ open class KeepAnimator: NSObject
     private var _enabledX: Bool = false
     private var _enabledY: Bool = false
     
-    private var _easingX: ChartEasingFunctionBlock?
-    private var _easingY: ChartEasingFunctionBlock?
+    private var _easingX: KeepChartEasingFunctionBlock?
+    private var _easingY: KeepChartEasingFunctionBlock?
 
     public override init()
     {
@@ -140,7 +140,7 @@ open class KeepAnimator: NSObject
     /// - parameter yAxisDuration: duration for animating the y axis
     /// - parameter easingX: an easing function for the animation on the x axis
     /// - parameter easingY: an easing function for the animation on the y axis
-    @objc open func animate(xAxisDuration: TimeInterval, yAxisDuration: TimeInterval, easingX: ChartEasingFunctionBlock?, easingY: ChartEasingFunctionBlock?)
+    @objc open func animate(xAxisDuration: TimeInterval, yAxisDuration: TimeInterval, easingX: KeepChartEasingFunctionBlock?, easingY: KeepChartEasingFunctionBlock?)
     {
         stop()
         
@@ -173,7 +173,7 @@ open class KeepAnimator: NSObject
     /// - parameter yAxisDuration: duration for animating the y axis
     /// - parameter easingOptionX: the easing function for the animation on the x axis
     /// - parameter easingOptionY: the easing function for the animation on the y axis
-    @objc open func animate(xAxisDuration: TimeInterval, yAxisDuration: TimeInterval, easingOptionX: ChartEasingOption, easingOptionY: ChartEasingOption)
+    @objc open func animate(xAxisDuration: TimeInterval, yAxisDuration: TimeInterval, easingOptionX: KeepChartEasingOption, easingOptionY: KeepChartEasingOption)
     {
         animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration, easingX: easingFunctionFromOption(easingOptionX), easingY: easingFunctionFromOption(easingOptionY))
     }
@@ -183,7 +183,7 @@ open class KeepAnimator: NSObject
     /// - parameter xAxisDuration: duration for animating the x axis
     /// - parameter yAxisDuration: duration for animating the y axis
     /// - parameter easing: an easing function for the animation
-    @objc open func animate(xAxisDuration: TimeInterval, yAxisDuration: TimeInterval, easing: ChartEasingFunctionBlock?)
+    @objc open func animate(xAxisDuration: TimeInterval, yAxisDuration: TimeInterval, easing: KeepChartEasingFunctionBlock?)
     {
         animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration, easingX: easing, easingY: easing)
     }
@@ -193,7 +193,7 @@ open class KeepAnimator: NSObject
     /// - parameter xAxisDuration: duration for animating the x axis
     /// - parameter yAxisDuration: duration for animating the y axis
     /// - parameter easingOption: the easing function for the animation
-    @objc open func animate(xAxisDuration: TimeInterval, yAxisDuration: TimeInterval, easingOption: ChartEasingOption = .easeInOutSine)
+    @objc open func animate(xAxisDuration: TimeInterval, yAxisDuration: TimeInterval, easingOption: KeepChartEasingOption = .easeInOutSine)
     {
         animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration, easing: easingFunctionFromOption(easingOption))
     }
@@ -202,7 +202,7 @@ open class KeepAnimator: NSObject
     /// If `animate(...)` is called, no further calling of `invalidate()` is necessary to refresh the chart.
     /// - parameter xAxisDuration: duration for animating the x axis
     /// - parameter easing: an easing function for the animation
-    @objc open func animate(xAxisDuration: TimeInterval, easing: ChartEasingFunctionBlock?)
+    @objc open func animate(xAxisDuration: TimeInterval, easing: KeepChartEasingFunctionBlock?)
     {
         _startTimeX = CACurrentMediaTime()
         _durationX = xAxisDuration
@@ -227,7 +227,7 @@ open class KeepAnimator: NSObject
     /// If `animate(...)` is called, no further calling of `invalidate()` is necessary to refresh the chart.
     /// - parameter xAxisDuration: duration for animating the x axis
     /// - parameter easingOption: the easing function for the animation
-    @objc open func animate(xAxisDuration: TimeInterval, easingOption: ChartEasingOption = .easeInOutSine)
+    @objc open func animate(xAxisDuration: TimeInterval, easingOption: KeepChartEasingOption = .easeInOutSine)
     {
         animate(xAxisDuration: xAxisDuration, easing: easingFunctionFromOption(easingOption))
     }
@@ -236,7 +236,7 @@ open class KeepAnimator: NSObject
     /// If `animate(...)` is called, no further calling of `invalidate()` is necessary to refresh the chart.
     /// - parameter yAxisDuration: duration for animating the y axis
     /// - parameter easing: an easing function for the animation
-    @objc open func animate(yAxisDuration: TimeInterval, easing: ChartEasingFunctionBlock?)
+    @objc open func animate(yAxisDuration: TimeInterval, easing: KeepChartEasingFunctionBlock?)
     {
         _startTimeY = CACurrentMediaTime()
         _durationY = yAxisDuration
@@ -261,7 +261,7 @@ open class KeepAnimator: NSObject
     /// If `animate(...)` is called, no further calling of `invalidate()` is necessary to refresh the chart.
     /// - parameter yAxisDuration: duration for animating the y axis
     /// - parameter easingOption: the easing function for the animation
-    @objc open func animate(yAxisDuration: TimeInterval, easingOption: ChartEasingOption = .easeInOutSine)
+    @objc open func animate(yAxisDuration: TimeInterval, easingOption: KeepChartEasingOption = .easeInOutSine)
     {
         animate(yAxisDuration: yAxisDuration, easing: easingFunctionFromOption(easingOption))
     }

@@ -6,6 +6,20 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		77C0D0EA2121959C00DFFFF8 /* CommonBuilder */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 77C0D0EB2121959C00DFFFF8 /* Build configuration list for PBXAggregateTarget "CommonBuilder" */;
+			buildPhases = (
+				77C0D0EE212195AF00DFFFF8 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = CommonBuilder;
+			productName = CommonBuilder;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		77C0CE9C2121631C00DFFFF8 /* KeepCharts.h in Headers */ = {isa = PBXBuildFile; fileRef = 77C0CE9A2121631C00DFFFF8 /* KeepCharts.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77C0D061212163E000DFFFF8 /* KeepDataApproximator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0CFC9212163DF00DFFFF8 /* KeepDataApproximator.swift */; };
@@ -62,7 +76,7 @@
 		77C0D094212163E000DFFFF8 /* KeepBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0D000212163DF00DFFFF8 /* KeepBarChartView.swift */; };
 		77C0D095212163E000DFFFF8 /* KeepScatterChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0D001212163DF00DFFFF8 /* KeepScatterChartView.swift */; };
 		77C0D096212163E000DFFFF8 /* KeepPieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0D002212163DF00DFFFF8 /* KeepPieChartView.swift */; };
-		77C0D097212163E000DFFFF8 /* ChartAnimationEasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0D004212163DF00DFFFF8 /* ChartAnimationEasing.swift */; };
+		77C0D097212163E000DFFFF8 /* KeepChartAnimationEasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0D004212163DF00DFFFF8 /* KeepChartAnimationEasing.swift */; };
 		77C0D098212163E000DFFFF8 /* KeepAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0D005212163DF00DFFFF8 /* KeepAnimator.swift */; };
 		77C0D099212163E000DFFFF8 /* KeepIAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0D007212163DF00DFFFF8 /* KeepIAxisValueFormatter.swift */; };
 		77C0D09A212163E000DFFFF8 /* KeepDefaultFillFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0D008212163DF00DFFFF8 /* KeepDefaultFillFormatter.swift */; };
@@ -205,7 +219,7 @@
 		77C0D000212163DF00DFFFF8 /* KeepBarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeepBarChartView.swift; sourceTree = "<group>"; };
 		77C0D001212163DF00DFFFF8 /* KeepScatterChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeepScatterChartView.swift; sourceTree = "<group>"; };
 		77C0D002212163DF00DFFFF8 /* KeepPieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeepPieChartView.swift; sourceTree = "<group>"; };
-		77C0D004212163DF00DFFFF8 /* ChartAnimationEasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartAnimationEasing.swift; sourceTree = "<group>"; };
+		77C0D004212163DF00DFFFF8 /* KeepChartAnimationEasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeepChartAnimationEasing.swift; sourceTree = "<group>"; };
 		77C0D005212163DF00DFFFF8 /* KeepAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeepAnimator.swift; sourceTree = "<group>"; };
 		77C0D007212163DF00DFFFF8 /* KeepIAxisValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeepIAxisValueFormatter.swift; sourceTree = "<group>"; };
 		77C0D008212163DF00DFFFF8 /* KeepDefaultFillFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeepDefaultFillFormatter.swift; sourceTree = "<group>"; };
@@ -447,7 +461,7 @@
 		77C0D003212163DF00DFFFF8 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
-				77C0D004212163DF00DFFFF8 /* ChartAnimationEasing.swift */,
+				77C0D004212163DF00DFFFF8 /* KeepChartAnimationEasing.swift */,
 				77C0D005212163DF00DFFFF8 /* KeepAnimator.swift */,
 			);
 			path = Animation;
@@ -652,6 +666,9 @@
 					77C0CE962121631C00DFFFF8 = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
+					77C0D0EA2121959C00DFFFF8 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
 				};
 			};
 			buildConfigurationList = 77C0CE912121631C00DFFFF8 /* Build configuration list for PBXProject "KeepCharts" */;
@@ -667,6 +684,7 @@
 			projectRoot = "";
 			targets = (
 				77C0CE962121631C00DFFFF8 /* KeepCharts */,
+				77C0D0EA2121959C00DFFFF8 /* CommonBuilder */,
 			);
 		};
 /* End PBXProject section */
@@ -681,6 +699,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		77C0D0EE212195AF00DFFFF8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "script\n\n# Merge Script\n\n# 1\n# Set bash script to exit immediately if any commands fail.\nset -e\n\n# 2\n# Setup some constants for use later on.\nFRAMEWORK_NAME=\"KeepCharts\"\n\n# 3\n# If remnants from a previous build exist, delete them.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi\n\n# 4\n# Build the framework for device and for simulator (using\n# all needed architectures).\nxcodebuild -target \"${FRAMEWORK_NAME}\" -configuration Release -arch arm64 -arch armv7 -arch armv7s only_active_arch=no defines_module=yes -sdk \"iphoneos\"\nxcodebuild -target \"${FRAMEWORK_NAME}\" -configuration Release -arch x86_64 -arch i386 only_active_arch=no defines_module=yes -sdk \"iphonesimulator\"\n\n# 5\n# Remove .framework file if exists on Desktop from previous run.\nif [ -d \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\" ]; then\nrm -rf \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\"\nfi\n\n# 6\n# Copy the device version of framework to Desktop.\ncp -r \"${SRCROOT}/build/Release-iphoneos/${FRAMEWORK_NAME}.framework\" \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework\"\n\n# 7\n# Replace the framework executable within the framework with\n# a new version created by merging the device and simulator\n# frameworks' executables with lipo.\nlipo -create -output \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${SRCROOT}/build/Release-iphoneos/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${SRCROOT}/build/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\"\n\n# 8\n# Copy the Swift module mappings for the simulator into the\n# framework.  The device mappings already exist from step 6.\ncp -r \"${SRCROOT}/build/Release-iphonesimulator/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule/\" \"${HOME}/Desktop/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule\"\n\n# 9\n# Delete the most recent build.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		77C0CE922121631C00DFFFF8 /* Sources */ = {
@@ -699,7 +733,7 @@
 				77C0D07E212163E000DFFFF8 /* KeepPieChartRenderer.swift in Sources */,
 				77C0D0C1212163E000DFFFF8 /* KeepRadarChartData.swift in Sources */,
 				77C0D0B1212163E000DFFFF8 /* KeepComponentBase.swift in Sources */,
-				77C0D097212163E000DFFFF8 /* ChartAnimationEasing.swift in Sources */,
+				77C0D097212163E000DFFFF8 /* KeepChartAnimationEasing.swift in Sources */,
 				77C0D0CA212163E000DFFFF8 /* KeepChartDataSet.swift in Sources */,
 				77C0D0E1212163E000DFFFF8 /* KeepChartDataProvider.swift in Sources */,
 				77C0D09E212163E000DFFFF8 /* KeepIFillFormatter.swift in Sources */,
@@ -951,6 +985,10 @@
 		77C0CEA02121631C00DFFFF8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -960,6 +998,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = KeepCharts/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -976,6 +1015,10 @@
 		77C0CEA12121631C00DFFFF8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -985,6 +1028,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = KeepCharts/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -995,6 +1039,32 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		77C0D0EC2121959C00DFFFF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = C62TJ4568H;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LINK_WITH_STANDARD_LIBRARIES = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		77C0D0ED2121959C00DFFFF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = C62TJ4568H;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LINK_WITH_STANDARD_LIBRARIES = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -1015,6 +1085,15 @@
 			buildConfigurations = (
 				77C0CEA02121631C00DFFFF8 /* Debug */,
 				77C0CEA12121631C00DFFFF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		77C0D0EB2121959C00DFFFF8 /* Build configuration list for PBXAggregateTarget "CommonBuilder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77C0D0EC2121959C00DFFFF8 /* Debug */,
+				77C0D0ED2121959C00DFFFF8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

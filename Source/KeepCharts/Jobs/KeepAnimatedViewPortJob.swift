@@ -27,7 +27,7 @@ open class KeepAnimatedViewPortJob: KeepViewPortJob
     private var _duration: TimeInterval = 0.0
     private var _endTime: TimeInterval = 0.0
     
-    private var _easing: ChartEasingFunctionBlock?
+    private var _easing: KeepChartEasingFunctionBlock?
     
     @objc public init(
         viewPortHandler: KeepViewPortHandler,
@@ -38,7 +38,7 @@ open class KeepAnimatedViewPortJob: KeepViewPortJob
         xOrigin: CGFloat,
         yOrigin: CGFloat,
         duration: TimeInterval,
-        easing: ChartEasingFunctionBlock?)
+        easing: KeepChartEasingFunctionBlock?)
     {
         super.init(viewPortHandler: viewPortHandler,
             xValue: xValue,

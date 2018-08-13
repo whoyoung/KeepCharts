@@ -18,7 +18,7 @@ import CoreGraphics
 #endif
 
 @objc
-public protocol ChartViewDelegate
+public protocol KeepChartViewDelegate
 {
     /// Called when a value has been selected inside the chart.
     /// - parameter entry: The selected Entry.
@@ -79,7 +79,7 @@ open class KeepChartViewBase: NSUIView, KeepChartDataProvider, KeepAnimatorDeleg
     internal var _legend: KeepLegend!
     
     /// delegate to receive chart events
-    @objc open weak var delegate: ChartViewDelegate?
+    @objc open weak var delegate: KeepChartViewDelegate?
     
     /// text that is displayed when the chart is empty
     @objc open var noDataText = "No chart data available."
@@ -629,7 +629,7 @@ open class KeepChartViewBase: NSUIView, KeepChartDataProvider, KeepAnimatorDeleg
     /// - parameter yAxisDuration: duration for animating the y axis
     /// - parameter easingX: an easing function for the animation on the x axis
     /// - parameter easingY: an easing function for the animation on the y axis
-    @objc open func animate(xAxisDuration: TimeInterval, yAxisDuration: TimeInterval, easingX: ChartEasingFunctionBlock?, easingY: ChartEasingFunctionBlock?)
+    @objc open func animate(xAxisDuration: TimeInterval, yAxisDuration: TimeInterval, easingX: KeepChartEasingFunctionBlock?, easingY: KeepChartEasingFunctionBlock?)
     {
         _animator.animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration, easingX: easingX, easingY: easingY)
     }
@@ -640,7 +640,7 @@ open class KeepChartViewBase: NSUIView, KeepChartDataProvider, KeepAnimatorDeleg
     /// - parameter yAxisDuration: duration for animating the y axis
     /// - parameter easingOptionX: the easing function for the animation on the x axis
     /// - parameter easingOptionY: the easing function for the animation on the y axis
-    @objc open func animate(xAxisDuration: TimeInterval, yAxisDuration: TimeInterval, easingOptionX: ChartEasingOption, easingOptionY: ChartEasingOption)
+    @objc open func animate(xAxisDuration: TimeInterval, yAxisDuration: TimeInterval, easingOptionX: KeepChartEasingOption, easingOptionY: KeepChartEasingOption)
     {
         _animator.animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration, easingOptionX: easingOptionX, easingOptionY: easingOptionY)
     }
@@ -650,7 +650,7 @@ open class KeepChartViewBase: NSUIView, KeepChartDataProvider, KeepAnimatorDeleg
     /// - parameter xAxisDuration: duration for animating the x axis
     /// - parameter yAxisDuration: duration for animating the y axis
     /// - parameter easing: an easing function for the animation
-    @objc open func animate(xAxisDuration: TimeInterval, yAxisDuration: TimeInterval, easing: ChartEasingFunctionBlock?)
+    @objc open func animate(xAxisDuration: TimeInterval, yAxisDuration: TimeInterval, easing: KeepChartEasingFunctionBlock?)
     {
         _animator.animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration, easing: easing)
     }
@@ -660,7 +660,7 @@ open class KeepChartViewBase: NSUIView, KeepChartDataProvider, KeepAnimatorDeleg
     /// - parameter xAxisDuration: duration for animating the x axis
     /// - parameter yAxisDuration: duration for animating the y axis
     /// - parameter easingOption: the easing function for the animation
-    @objc open func animate(xAxisDuration: TimeInterval, yAxisDuration: TimeInterval, easingOption: ChartEasingOption)
+    @objc open func animate(xAxisDuration: TimeInterval, yAxisDuration: TimeInterval, easingOption: KeepChartEasingOption)
     {
         _animator.animate(xAxisDuration: xAxisDuration, yAxisDuration: yAxisDuration, easingOption: easingOption)
     }
@@ -678,7 +678,7 @@ open class KeepChartViewBase: NSUIView, KeepChartDataProvider, KeepAnimatorDeleg
     /// If `animate(...)` is called, no further calling of `invalidate()` is necessary to refresh the chart.
     /// - parameter xAxisDuration: duration for animating the x axis
     /// - parameter easing: an easing function for the animation
-    @objc open func animate(xAxisDuration: TimeInterval, easing: ChartEasingFunctionBlock?)
+    @objc open func animate(xAxisDuration: TimeInterval, easing: KeepChartEasingFunctionBlock?)
     {
         _animator.animate(xAxisDuration: xAxisDuration, easing: easing)
     }
@@ -687,7 +687,7 @@ open class KeepChartViewBase: NSUIView, KeepChartDataProvider, KeepAnimatorDeleg
     /// If `animate(...)` is called, no further calling of `invalidate()` is necessary to refresh the chart.
     /// - parameter xAxisDuration: duration for animating the x axis
     /// - parameter easingOption: the easing function for the animation
-    @objc open func animate(xAxisDuration: TimeInterval, easingOption: ChartEasingOption)
+    @objc open func animate(xAxisDuration: TimeInterval, easingOption: KeepChartEasingOption)
     {
         _animator.animate(xAxisDuration: xAxisDuration, easingOption: easingOption)
     }
@@ -704,7 +704,7 @@ open class KeepChartViewBase: NSUIView, KeepChartDataProvider, KeepAnimatorDeleg
     /// If `animate(...)` is called, no further calling of `invalidate()` is necessary to refresh the chart.
     /// - parameter yAxisDuration: duration for animating the y axis
     /// - parameter easing: an easing function for the animation
-    @objc open func animate(yAxisDuration: TimeInterval, easing: ChartEasingFunctionBlock?)
+    @objc open func animate(yAxisDuration: TimeInterval, easing: KeepChartEasingFunctionBlock?)
     {
         _animator.animate(yAxisDuration: yAxisDuration, easing: easing)
     }
@@ -713,7 +713,7 @@ open class KeepChartViewBase: NSUIView, KeepChartDataProvider, KeepAnimatorDeleg
     /// If `animate(...)` is called, no further calling of `invalidate()` is necessary to refresh the chart.
     /// - parameter yAxisDuration: duration for animating the y axis
     /// - parameter easingOption: the easing function for the animation
-    @objc open func animate(yAxisDuration: TimeInterval, easingOption: ChartEasingOption)
+    @objc open func animate(yAxisDuration: TimeInterval, easingOption: KeepChartEasingOption)
     {
         _animator.animate(yAxisDuration: yAxisDuration, easingOption: easingOption)
     }
