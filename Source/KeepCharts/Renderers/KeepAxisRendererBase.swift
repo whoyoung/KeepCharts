@@ -16,12 +16,12 @@ import CoreGraphics
 open class KeepAxisRendererBase: KeepRenderer
 {
     /// base axis this axis renderer works with
-    @objc open var axis: AxisBase?
+    @objc open var axis: KeepAxisBase?
     
     /// transformer to transform values to screen pixels and return
     @objc open var transformer: KeepTransformer?
 
-    @objc public init(viewPortHandler: KeepViewPortHandler, transformer: KeepTransformer?, axis: AxisBase?)
+    @objc public init(viewPortHandler: KeepViewPortHandler, transformer: KeepTransformer?, axis: KeepAxisBase?)
     {
         super.init(viewPortHandler: viewPortHandler)
         

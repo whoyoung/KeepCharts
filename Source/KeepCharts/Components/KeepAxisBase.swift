@@ -1,5 +1,5 @@
 //
-//  AxisBase.swift
+//  KeepAxisBase.swift
 //  Charts
 //
 //  Copyright 2015 Daniel Cohen Gindi & Philipp Jahoda
@@ -13,8 +13,8 @@ import Foundation
 import CoreGraphics
 
 /// Base class for all axes
-@objc(ChartAxisBase)
-open class AxisBase: KeepComponentBase
+@objc(KeepChartAxisBase)
+open class KeepAxisBase: KeepComponentBase
 {
     public override init()
     {

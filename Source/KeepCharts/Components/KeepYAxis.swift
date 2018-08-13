@@ -21,7 +21,7 @@ import CoreGraphics
 /// Be aware that not all features the YLabels class provides are suitable for the RadarChart.
 /// Customizations that affect the value range of the axis need to be applied before setting data for the chart.
 @objc(KeepChartYAxis)
-open class KeepYAxis: AxisBase
+open class KeepYAxis: KeepAxisBase
 {
     @objc(KeepYAxisLabelPosition)
     public enum LabelPosition: Int

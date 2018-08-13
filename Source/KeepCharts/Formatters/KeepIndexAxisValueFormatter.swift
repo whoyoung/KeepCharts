@@ -50,7 +50,7 @@ open class KeepIndexAxisValueFormatter: NSObject,  KeepIAxisValueFormatter
     }
     
     open func stringForValue(_ value: Double,
-                             axis: AxisBase?) -> String
+                             axis: KeepAxisBase?) -> String
     {
         let index = Int(value.rounded())
         guard values.indices.contains(index), index == Int(value) else { return "" }

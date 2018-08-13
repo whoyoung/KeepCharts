@@ -55,7 +55,7 @@
 		77C0D08D212163E000DFFFF8 /* KeepBarLineChartViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0CFF9212163DF00DFFFF8 /* KeepBarLineChartViewBase.swift */; };
 		77C0D08E212163E000DFFFF8 /* KeepLineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0CFFA212163DF00DFFFF8 /* KeepLineChartView.swift */; };
 		77C0D08F212163E000DFFFF8 /* KeepCombinedChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0CFFB212163DF00DFFFF8 /* KeepCombinedChartView.swift */; };
-		77C0D090212163E000DFFFF8 /* HorizontalBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0CFFC212163DF00DFFFF8 /* HorizontalBarChartView.swift */; };
+		77C0D090212163E000DFFFF8 /* KeepHorizontalBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0CFFC212163DF00DFFFF8 /* KeepHorizontalBarChartView.swift */; };
 		77C0D091212163E000DFFFF8 /* KeepChartViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0CFFD212163DF00DFFFF8 /* KeepChartViewBase.swift */; };
 		77C0D092212163E000DFFFF8 /* KeepBubbleChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0CFFE212163DF00DFFFF8 /* KeepBubbleChartView.swift */; };
 		77C0D093212163E000DFFFF8 /* KeepPieRadarChartViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0CFFF212163DF00DFFFF8 /* KeepPieRadarChartViewBase.swift */; };
@@ -84,7 +84,7 @@
 		77C0D0AA212163E000DFFFF8 /* KeepLegend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0D01A212163DF00DFFFF8 /* KeepLegend.swift */; };
 		77C0D0AB212163E000DFFFF8 /* KeepLegendEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0D01B212163DF00DFFFF8 /* KeepLegendEntry.swift */; };
 		77C0D0AC212163E000DFFFF8 /* KeepYAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0D01C212163DF00DFFFF8 /* KeepYAxis.swift */; };
-		77C0D0AD212163E000DFFFF8 /* AxisBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0D01D212163DF00DFFFF8 /* AxisBase.swift */; };
+		77C0D0AD212163E000DFFFF8 /* KeepAxisBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0D01D212163DF00DFFFF8 /* KeepAxisBase.swift */; };
 		77C0D0AE212163E000DFFFF8 /* KeepXAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0D01E212163DF00DFFFF8 /* KeepXAxis.swift */; };
 		77C0D0AF212163E000DFFFF8 /* KeepChartLimitLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0D01F212163DF00DFFFF8 /* KeepChartLimitLine.swift */; };
 		77C0D0B0212163E000DFFFF8 /* KeepMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0D020212163DF00DFFFF8 /* KeepMarkerView.swift */; };
@@ -198,7 +198,7 @@
 		77C0CFF9212163DF00DFFFF8 /* KeepBarLineChartViewBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeepBarLineChartViewBase.swift; sourceTree = "<group>"; };
 		77C0CFFA212163DF00DFFFF8 /* KeepLineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeepLineChartView.swift; sourceTree = "<group>"; };
 		77C0CFFB212163DF00DFFFF8 /* KeepCombinedChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeepCombinedChartView.swift; sourceTree = "<group>"; };
-		77C0CFFC212163DF00DFFFF8 /* HorizontalBarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalBarChartView.swift; sourceTree = "<group>"; };
+		77C0CFFC212163DF00DFFFF8 /* KeepHorizontalBarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeepHorizontalBarChartView.swift; sourceTree = "<group>"; };
 		77C0CFFD212163DF00DFFFF8 /* KeepChartViewBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeepChartViewBase.swift; sourceTree = "<group>"; };
 		77C0CFFE212163DF00DFFFF8 /* KeepBubbleChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeepBubbleChartView.swift; sourceTree = "<group>"; };
 		77C0CFFF212163DF00DFFFF8 /* KeepPieRadarChartViewBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeepPieRadarChartViewBase.swift; sourceTree = "<group>"; };
@@ -227,7 +227,7 @@
 		77C0D01A212163DF00DFFFF8 /* KeepLegend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeepLegend.swift; sourceTree = "<group>"; };
 		77C0D01B212163DF00DFFFF8 /* KeepLegendEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeepLegendEntry.swift; sourceTree = "<group>"; };
 		77C0D01C212163DF00DFFFF8 /* KeepYAxis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeepYAxis.swift; sourceTree = "<group>"; };
-		77C0D01D212163DF00DFFFF8 /* AxisBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxisBase.swift; sourceTree = "<group>"; };
+		77C0D01D212163DF00DFFFF8 /* KeepAxisBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeepAxisBase.swift; sourceTree = "<group>"; };
 		77C0D01E212163DF00DFFFF8 /* KeepXAxis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeepXAxis.swift; sourceTree = "<group>"; };
 		77C0D01F212163DF00DFFFF8 /* KeepChartLimitLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeepChartLimitLine.swift; sourceTree = "<group>"; };
 		77C0D020212163DF00DFFFF8 /* KeepMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeepMarkerView.swift; sourceTree = "<group>"; };
@@ -433,7 +433,7 @@
 				77C0CFF9212163DF00DFFFF8 /* KeepBarLineChartViewBase.swift */,
 				77C0CFFA212163DF00DFFFF8 /* KeepLineChartView.swift */,
 				77C0CFFB212163DF00DFFFF8 /* KeepCombinedChartView.swift */,
-				77C0CFFC212163DF00DFFFF8 /* HorizontalBarChartView.swift */,
+				77C0CFFC212163DF00DFFFF8 /* KeepHorizontalBarChartView.swift */,
 				77C0CFFD212163DF00DFFFF8 /* KeepChartViewBase.swift */,
 				77C0CFFE212163DF00DFFFF8 /* KeepBubbleChartView.swift */,
 				77C0CFFF212163DF00DFFFF8 /* KeepPieRadarChartViewBase.swift */,
@@ -490,7 +490,7 @@
 				77C0D01A212163DF00DFFFF8 /* KeepLegend.swift */,
 				77C0D01B212163DF00DFFFF8 /* KeepLegendEntry.swift */,
 				77C0D01C212163DF00DFFFF8 /* KeepYAxis.swift */,
-				77C0D01D212163DF00DFFFF8 /* AxisBase.swift */,
+				77C0D01D212163DF00DFFFF8 /* KeepAxisBase.swift */,
 				77C0D01E212163DF00DFFFF8 /* KeepXAxis.swift */,
 				77C0D01F212163DF00DFFFF8 /* KeepChartLimitLine.swift */,
 				77C0D020212163DF00DFFFF8 /* KeepMarkerView.swift */,
@@ -751,7 +751,7 @@
 				77C0D089212163E000DFFFF8 /* KeepIHighlighter.swift in Sources */,
 				77C0D06C212163E000DFFFF8 /* KeepCombinedChartRenderer.swift in Sources */,
 				77C0D07F212163E000DFFFF8 /* KeepRenderer.swift in Sources */,
-				77C0D090212163E000DFFFF8 /* HorizontalBarChartView.swift in Sources */,
+				77C0D090212163E000DFFFF8 /* KeepHorizontalBarChartView.swift in Sources */,
 				77C0D0E6212163E000DFFFF8 /* KeepScatterChartDataProvider.swift in Sources */,
 				77C0D087212163E000DFFFF8 /* KeepRange.swift in Sources */,
 				77C0D061212163E000DFFFF8 /* KeepDataApproximator.swift in Sources */,
@@ -816,7 +816,7 @@
 				77C0D0AB212163E000DFFFF8 /* KeepLegendEntry.swift in Sources */,
 				77C0D0DF212163E000DFFFF8 /* KeepIBarLineScatterCandleBubbleChartDataSet.swift in Sources */,
 				77C0D0CC212163E000DFFFF8 /* KeepScatterChartData.swift in Sources */,
-				77C0D0AD212163E000DFFFF8 /* AxisBase.swift in Sources */,
+				77C0D0AD212163E000DFFFF8 /* KeepAxisBase.swift in Sources */,
 				77C0D073212163E000DFFFF8 /* KeepSquareShapeRenderer.swift in Sources */,
 				77C0D0B8212163E000DFFFF8 /* KeepChartData.swift in Sources */,
 				77C0D0D7212163E000DFFFF8 /* KeepILineChartDataSet.swift in Sources */,

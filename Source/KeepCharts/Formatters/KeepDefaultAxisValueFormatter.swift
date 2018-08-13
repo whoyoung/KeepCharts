@@ -16,7 +16,7 @@ open class KeepDefaultAxisValueFormatter: NSObject,  KeepIAxisValueFormatter
 {
     public typealias Block = (
         _ value: Double,
-        _ axis: AxisBase?) -> String
+        _ axis: KeepAxisBase?) -> String
     
     @objc open var block: Block?
     
@@ -89,7 +89,7 @@ open class KeepDefaultAxisValueFormatter: NSObject,  KeepIAxisValueFormatter
     }
     
     open func stringForValue(_ value: Double,
-                               axis: AxisBase?) -> String
+                               axis: KeepAxisBase?) -> String
     {
         if let block = block {
             return block(value, axis)

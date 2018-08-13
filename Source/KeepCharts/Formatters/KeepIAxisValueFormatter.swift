@@ -25,6 +25,6 @@ public protocol  KeepIAxisValueFormatter: class
     /// - parameter axis:            the axis that the value belongs to
     ///
     func stringForValue(_ value: Double,
-                        axis: AxisBase?) -> String
+                        axis: KeepAxisBase?) -> String
     
 }

@@ -13,7 +13,7 @@ import Foundation
 import CoreGraphics
 
 @objc(KeepChartXAxis)
-open class KeepXAxis: AxisBase
+open class KeepXAxis: KeepAxisBase
 {
     @objc(KeepXAxisLabelPosition)
     public enum LabelPosition: Int
