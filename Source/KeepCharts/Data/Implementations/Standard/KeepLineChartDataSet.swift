@@ -15,7 +15,7 @@ import CoreGraphics
 
 open class KeepLineChartDataSet: KeepLineRadarChartDataSet, KeepILineChartDataSet
 {
-    @objc(LineChartMode)
+    @objc(KeepLineChartMode)
     public enum Mode: Int
     {
         case linear

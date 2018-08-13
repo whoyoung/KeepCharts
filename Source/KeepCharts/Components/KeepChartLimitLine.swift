@@ -17,7 +17,7 @@ import CoreGraphics
 /// It allows the displaying of an additional line in the chart that marks a certain maximum / limit on the specified axis (x- or y-axis).
 open class KeepChartLimitLine: KeepComponentBase
 {
-    @objc(ChartLimitLabelPosition)
+    @objc(KeepChartLimitLabelPosition)
     public enum LabelPosition: Int
     {
         case leftTop

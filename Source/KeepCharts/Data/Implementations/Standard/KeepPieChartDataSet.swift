@@ -14,7 +14,7 @@ import CoreGraphics
 
 open class KeepPieChartDataSet: KeepChartDataSet, KeepIPieChartDataSet
 {
-    @objc(PieChartValuePosition)
+    @objc(KeepPieChartValuePosition)
     public enum ValuePosition: Int
     {
         case insideSlice

@@ -15,7 +15,7 @@ import CoreGraphics
 open class KeepScatterChartDataSet: KeepLineScatterCandleRadarChartDataSet, KeepIScatterChartDataSet
 {
     
-    @objc(ScatterShape)
+    @objc(KeepScatterShape)
     public enum Shape: Int
     {
         case square

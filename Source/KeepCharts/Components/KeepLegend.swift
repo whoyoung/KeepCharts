@@ -19,7 +19,7 @@ import CoreGraphics
 @objc(KeepChartLegend)
 open class KeepLegend: KeepComponentBase
 {
-    @objc(ChartLegendForm)
+    @objc(KeepChartLegendForm)
     public enum Form: Int
     {
         /// Avoid drawing a form
@@ -41,7 +41,7 @@ open class KeepLegend: KeepComponentBase
         case line
     }
     
-    @objc(ChartLegendHorizontalAlignment)
+    @objc(KeepChartLegendHorizontalAlignment)
     public enum HorizontalAlignment: Int
     {
         case left
@@ -49,7 +49,7 @@ open class KeepLegend: KeepComponentBase
         case right
     }
     
-    @objc(ChartLegendVerticalAlignment)
+    @objc(KeepChartLegendVerticalAlignment)
     public enum VerticalAlignment: Int
     {
         case top
@@ -57,14 +57,14 @@ open class KeepLegend: KeepComponentBase
         case bottom
     }
     
-    @objc(ChartLegendOrientation)
+    @objc(KeepChartLegendOrientation)
     public enum Orientation: Int
     {
         case horizontal
         case vertical
     }
     
-    @objc(ChartLegendDirection)
+    @objc(KeepChartLegendDirection)
     public enum Direction: Int
     {
         case leftToRight

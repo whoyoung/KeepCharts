@@ -12,7 +12,7 @@
 import Foundation
 import CoreGraphics
 
-@objc(ChartFillType)
+@objc(KeepChartFillType)
 public enum KeepFillType: Int
 {
     case empty
