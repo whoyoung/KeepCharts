@@ -1,0 +1,11 @@
+framework module KeepCharts {
+  umbrella header "KeepCharts.h"
+
+  export *
+  module * { export * }
+}
+
+module KeepCharts.Swift {
+    header "KeepCharts-Swift.h"
+    requires objc
+}

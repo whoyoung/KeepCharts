@@ -159,6 +159,7 @@
 		77C0D0E7212163E000DFFFF8 /* KeepBubbleChartDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0D05D212163DF00DFFFF8 /* KeepBubbleChartDataProvider.swift */; };
 		77C0D0E8212163E000DFFFF8 /* KeepCharts.h in Headers */ = {isa = PBXBuildFile; fileRef = 77C0D05F212163DF00DFFFF8 /* KeepCharts.h */; };
 		77C0D0E9212163E000DFFFF8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77C0D060212163DF00DFFFF8 /* Info.plist */; };
+		77C0D0FB212282A700DFFFF8 /* KeepCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77C0D0FA212282A700DFFFF8 /* KeepCharts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -302,6 +303,7 @@
 		77C0D05D212163DF00DFFFF8 /* KeepBubbleChartDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeepBubbleChartDataProvider.swift; sourceTree = "<group>"; };
 		77C0D05F212163DF00DFFFF8 /* KeepCharts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeepCharts.h; sourceTree = "<group>"; };
 		77C0D060212163DF00DFFFF8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77C0D0FA212282A700DFFFF8 /* KeepCharts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KeepCharts.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +311,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77C0D0FB212282A700DFFFF8 /* KeepCharts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +338,7 @@
 		77C0CE992121631C00DFFFF8 /* KeepCharts */ = {
 			isa = PBXGroup;
 			children = (
+				77C0D0FA212282A700DFFFF8 /* KeepCharts.framework */,
 				77C0CE9A2121631C00DFFFF8 /* KeepCharts.h */,
 				77C0CE9B2121631C00DFFFF8 /* Info.plist */,
 			);
@@ -996,6 +1000,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KeepCharts",
+				);
 				INFOPLIST_FILE = KeepCharts/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1026,6 +1034,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KeepCharts",
+				);
 				INFOPLIST_FILE = KeepCharts/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
