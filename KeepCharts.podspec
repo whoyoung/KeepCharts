@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "KeepCharts"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "A short description of KeepCharts."
 
   s.description  = <<-DESC
@@ -26,9 +26,9 @@ this framework is renamed from Charts
 
   s.source       = { :git => "https://github.com/whoyoung/KeepCharts.git", :tag => "#{s.version}" }
 
-  s.source_files  = "KeepCharts/KeepCharts.framework/Headers/*.{h}"
+#s.source_files  = "KeepCharts/KeepCharts.framework/Headers/*.{h}"
 
-  s.public_header_files = "KeepCharts/KeepCharts.framework/Headers/KeepCharts.h"
+#s.public_header_files = "KeepCharts/KeepCharts.framework/Headers/KeepCharts.h"
   s.frameworks = "Foundation", "UIKit"
 
   s.vendored_frameworks = 'KeepCharts/KeepCharts.framework'
