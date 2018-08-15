@@ -491,7 +491,7 @@ SWIFT_CLASS_NAMED("KeepAxisRendererBase")
 
 @protocol KeepIChartDataSet;
 @class KeepChartDataEntry;
-enum AxisDependency : NSInteger;
+enum KeepAxisDependency : NSInteger;
 @class KeepChartHighlight;
 @protocol KeepIChartValueFormatter;
 
@@ -507,7 +507,7 @@ SWIFT_CLASS("_TtC10KeepCharts13KeepChartData")
 /// calc minimum and maximum y value over all datasets
 - (void)calcMinMax;
 /// Adjusts the current minimum and maximum values based on the provided Entry object.
-- (void)calcMinMaxWithEntry:(KeepChartDataEntry * _Nonnull)e axis:(enum AxisDependency)axis;
+- (void)calcMinMaxWithEntry:(KeepChartDataEntry * _Nonnull)e axis:(enum KeepAxisDependency)axis;
 /// Adjusts the minimum and maximum values based on the given DataSet.
 - (void)calcMinMaxWithDataSet:(id <KeepIChartDataSet> _Nonnull)d;
 ///
@@ -518,12 +518,12 @@ SWIFT_CLASS("_TtC10KeepCharts13KeepChartData")
 /// returns:
 /// The smallest y-value the data object contains.
 @property (nonatomic, readonly) double yMin;
-- (double)getYMinWithAxis:(enum AxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
+- (double)getYMinWithAxis:(enum KeepAxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
 ///
 /// returns:
 /// The greatest y-value the data object contains.
 @property (nonatomic, readonly) double yMax;
-- (double)getYMaxWithAxis:(enum AxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
+- (double)getYMaxWithAxis:(enum KeepAxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
 ///
 /// returns:
 /// The minimum x-value the data object contains.
@@ -819,8 +819,8 @@ SWIFT_PROTOCOL("_TtP10KeepCharts21KeepChartDataProvider_")
 
 SWIFT_PROTOCOL("_TtP10KeepCharts47KeepBarLineScatterCandleBubbleChartDataProvider_")
 @protocol KeepBarLineScatterCandleBubbleChartDataProvider <KeepChartDataProvider>
-- (KeepChartTransformer * _Nonnull)getTransformerForAxis:(enum AxisDependency)forAxis SWIFT_WARN_UNUSED_RESULT;
-- (BOOL)isInvertedWithAxis:(enum AxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
+- (KeepChartTransformer * _Nonnull)getTransformerForAxis:(enum KeepAxisDependency)forAxis SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)isInvertedWithAxis:(enum KeepAxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly) double lowestVisibleX;
 @property (nonatomic, readonly) double highestVisibleX;
 @end
@@ -985,7 +985,7 @@ SWIFT_PROTOCOL("_TtP10KeepCharts17KeepIChartDataSet_")
 /// The label string that describes the DataSet.
 @property (nonatomic, readonly, copy) NSString * _Nullable label;
 /// The axis this DataSet should be plotted against.
-@property (nonatomic, readonly) enum AxisDependency axisDependency;
+@property (nonatomic, readonly) enum KeepAxisDependency axisDependency;
 /// List representing all colors that are used for drawing the actual values for this DataSet
 @property (nonatomic, readonly, copy) NSArray<UIColor *> * _Nonnull valueColors;
 /// All the colors that are used for this DataSet.
@@ -1133,7 +1133,7 @@ SWIFT_CLASS("_TtC10KeepCharts20KeepChartBaseDataSet")
 /// The label string that describes the DataSet.
 @property (nonatomic, copy) NSString * _Nullable label;
 /// The axis this DataSet should be plotted against.
-@property (nonatomic) enum AxisDependency axisDependency;
+@property (nonatomic) enum KeepAxisDependency axisDependency;
 ///
 /// returns:
 /// The color at the given index of the DataSet’s color array.
@@ -1943,7 +1943,7 @@ SWIFT_CLASS("_TtC10KeepCharts24KeepBarLineChartViewBase")
 ///
 /// \param axis 
 ///
-- (void)zoomWithScaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY xValue:(double)xValue yValue:(double)yValue axis:(enum AxisDependency)axis;
+- (void)zoomWithScaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY xValue:(double)xValue yValue:(double)yValue axis:(enum KeepAxisDependency)axis;
 /// Zooms to the center of the chart with the given scale factor.
 /// \param scaleX if < 1 –> zoom out, if > 1 –> zoom in
 ///
@@ -1971,7 +1971,7 @@ SWIFT_CLASS("_TtC10KeepCharts24KeepBarLineChartViewBase")
 ///
 /// \param easing 
 ///
-- (void)zoomAndCenterViewAnimatedWithScaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY xValue:(double)xValue yValue:(double)yValue axis:(enum AxisDependency)axis duration:(NSTimeInterval)duration easing:(double (^ _Nullable)(NSTimeInterval, NSTimeInterval))easing;
+- (void)zoomAndCenterViewAnimatedWithScaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY xValue:(double)xValue yValue:(double)yValue axis:(enum KeepAxisDependency)axis duration:(NSTimeInterval)duration easing:(double (^ _Nullable)(NSTimeInterval, NSTimeInterval))easing;
 /// Zooms by the specified scale factor to the specified values on the specified axis.
 /// \param scaleX 
 ///
@@ -1987,7 +1987,7 @@ SWIFT_CLASS("_TtC10KeepCharts24KeepBarLineChartViewBase")
 ///
 /// \param easing 
 ///
-- (void)zoomAndCenterViewAnimatedWithScaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY xValue:(double)xValue yValue:(double)yValue axis:(enum AxisDependency)axis duration:(NSTimeInterval)duration easingOption:(enum KeepChartEasingOption)easingOption;
+- (void)zoomAndCenterViewAnimatedWithScaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY xValue:(double)xValue yValue:(double)yValue axis:(enum KeepAxisDependency)axis duration:(NSTimeInterval)duration easingOption:(enum KeepChartEasingOption)easingOption;
 /// Zooms by the specified scale factor to the specified values on the specified axis.
 /// \param scaleX 
 ///
@@ -2003,7 +2003,7 @@ SWIFT_CLASS("_TtC10KeepCharts24KeepBarLineChartViewBase")
 ///
 /// \param easing 
 ///
-- (void)zoomAndCenterViewAnimatedWithScaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY xValue:(double)xValue yValue:(double)yValue axis:(enum AxisDependency)axis duration:(NSTimeInterval)duration;
+- (void)zoomAndCenterViewAnimatedWithScaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY xValue:(double)xValue yValue:(double)yValue axis:(enum KeepAxisDependency)axis duration:(NSTimeInterval)duration;
 /// Resets all zooming and dragging and makes the chart fit exactly it’s bounds.
 - (void)fitScreen;
 /// Sets the minimum scale value to which can be zoomed out. 1 = fitScreen
@@ -2027,13 +2027,13 @@ SWIFT_CLASS("_TtC10KeepCharts24KeepBarLineChartViewBase")
 ///
 /// \param axis - the axis for which this limit should apply
 ///
-- (void)setVisibleYRangeMaximum:(double)maxYRange axis:(enum AxisDependency)axis;
+- (void)setVisibleYRangeMaximum:(double)maxYRange axis:(enum KeepAxisDependency)axis;
 /// Sets the size of the area (range on the y-axis) that should be minimum visible at once, no further zooming in possible.
 /// \param yRange 
 ///
 /// \param axis - the axis for which this limit should apply
 ///
-- (void)setVisibleYRangeMinimum:(double)minYRange axis:(enum AxisDependency)axis;
+- (void)setVisibleYRangeMinimum:(double)minYRange axis:(enum KeepAxisDependency)axis;
 /// Limits the maximum and minimum y range that can be visible by pinching and zooming.
 /// \param minYRange 
 ///
@@ -2041,7 +2041,7 @@ SWIFT_CLASS("_TtC10KeepCharts24KeepBarLineChartViewBase")
 ///
 /// \param axis 
 ///
-- (void)setVisibleYRangeWithMinYRange:(double)minYRange maxYRange:(double)maxYRange axis:(enum AxisDependency)axis;
+- (void)setVisibleYRangeWithMinYRange:(double)minYRange maxYRange:(double)maxYRange axis:(enum KeepAxisDependency)axis;
 /// Moves the left side of the current viewport to the specified x-value.
 /// This also refreshes the chart by calling setNeedsDisplay().
 - (void)moveViewToX:(double)xValue;
@@ -2051,7 +2051,7 @@ SWIFT_CLASS("_TtC10KeepCharts24KeepBarLineChartViewBase")
 ///
 /// \param axis - which axis should be used as a reference for the y-axis
 ///
-- (void)moveViewToY:(double)yValue axis:(enum AxisDependency)axis;
+- (void)moveViewToY:(double)yValue axis:(enum KeepAxisDependency)axis;
 /// This will move the left side of the current viewport to the specified x-value on the x-axis, and center the viewport to the specified y-value on the y-axis.
 /// This also refreshes the chart by calling setNeedsDisplay().
 /// \param xValue 
@@ -2060,7 +2060,7 @@ SWIFT_CLASS("_TtC10KeepCharts24KeepBarLineChartViewBase")
 ///
 /// \param axis - which axis should be used as a reference for the y-axis
 ///
-- (void)moveViewToXValue:(double)xValue yValue:(double)yValue axis:(enum AxisDependency)axis;
+- (void)moveViewToXValue:(double)xValue yValue:(double)yValue axis:(enum KeepAxisDependency)axis;
 /// This will move the left side of the current viewport to the specified x-position and center the viewport to the specified y-position animated.
 /// This also refreshes the chart by calling setNeedsDisplay().
 /// \param xValue 
@@ -2073,7 +2073,7 @@ SWIFT_CLASS("_TtC10KeepCharts24KeepBarLineChartViewBase")
 ///
 /// \param easing 
 ///
-- (void)moveViewToAnimatedWithXValue:(double)xValue yValue:(double)yValue axis:(enum AxisDependency)axis duration:(NSTimeInterval)duration easing:(double (^ _Nullable)(NSTimeInterval, NSTimeInterval))easing;
+- (void)moveViewToAnimatedWithXValue:(double)xValue yValue:(double)yValue axis:(enum KeepAxisDependency)axis duration:(NSTimeInterval)duration easing:(double (^ _Nullable)(NSTimeInterval, NSTimeInterval))easing;
 /// This will move the left side of the current viewport to the specified x-position and center the viewport to the specified y-position animated.
 /// This also refreshes the chart by calling setNeedsDisplay().
 /// \param xValue 
@@ -2086,7 +2086,7 @@ SWIFT_CLASS("_TtC10KeepCharts24KeepBarLineChartViewBase")
 ///
 /// \param easing 
 ///
-- (void)moveViewToAnimatedWithXValue:(double)xValue yValue:(double)yValue axis:(enum AxisDependency)axis duration:(NSTimeInterval)duration easingOption:(enum KeepChartEasingOption)easingOption;
+- (void)moveViewToAnimatedWithXValue:(double)xValue yValue:(double)yValue axis:(enum KeepAxisDependency)axis duration:(NSTimeInterval)duration easingOption:(enum KeepChartEasingOption)easingOption;
 /// This will move the left side of the current viewport to the specified x-position and center the viewport to the specified y-position animated.
 /// This also refreshes the chart by calling setNeedsDisplay().
 /// \param xValue 
@@ -2099,7 +2099,7 @@ SWIFT_CLASS("_TtC10KeepCharts24KeepBarLineChartViewBase")
 ///
 /// \param easing 
 ///
-- (void)moveViewToAnimatedWithXValue:(double)xValue yValue:(double)yValue axis:(enum AxisDependency)axis duration:(NSTimeInterval)duration;
+- (void)moveViewToAnimatedWithXValue:(double)xValue yValue:(double)yValue axis:(enum KeepAxisDependency)axis duration:(NSTimeInterval)duration;
 /// This will move the center of the current viewport to the specified x-value and y-value.
 /// This also refreshes the chart by calling setNeedsDisplay().
 /// \param xValue 
@@ -2108,7 +2108,7 @@ SWIFT_CLASS("_TtC10KeepCharts24KeepBarLineChartViewBase")
 ///
 /// \param axis - which axis should be used as a reference for the y-axis
 ///
-- (void)centerViewToXValue:(double)xValue yValue:(double)yValue axis:(enum AxisDependency)axis;
+- (void)centerViewToXValue:(double)xValue yValue:(double)yValue axis:(enum KeepAxisDependency)axis;
 /// This will move the center of the current viewport to the specified x-value and y-value animated.
 /// \param xValue 
 ///
@@ -2120,7 +2120,7 @@ SWIFT_CLASS("_TtC10KeepCharts24KeepBarLineChartViewBase")
 ///
 /// \param easing 
 ///
-- (void)centerViewToAnimatedWithXValue:(double)xValue yValue:(double)yValue axis:(enum AxisDependency)axis duration:(NSTimeInterval)duration easing:(double (^ _Nullable)(NSTimeInterval, NSTimeInterval))easing;
+- (void)centerViewToAnimatedWithXValue:(double)xValue yValue:(double)yValue axis:(enum KeepAxisDependency)axis duration:(NSTimeInterval)duration easing:(double (^ _Nullable)(NSTimeInterval, NSTimeInterval))easing;
 /// This will move the center of the current viewport to the specified x-value and y-value animated.
 /// \param xValue 
 ///
@@ -2132,7 +2132,7 @@ SWIFT_CLASS("_TtC10KeepCharts24KeepBarLineChartViewBase")
 ///
 /// \param easing 
 ///
-- (void)centerViewToAnimatedWithXValue:(double)xValue yValue:(double)yValue axis:(enum AxisDependency)axis duration:(NSTimeInterval)duration easingOption:(enum KeepChartEasingOption)easingOption;
+- (void)centerViewToAnimatedWithXValue:(double)xValue yValue:(double)yValue axis:(enum KeepAxisDependency)axis duration:(NSTimeInterval)duration easingOption:(enum KeepChartEasingOption)easingOption;
 /// This will move the center of the current viewport to the specified x-value and y-value animated.
 /// \param xValue 
 ///
@@ -2144,7 +2144,7 @@ SWIFT_CLASS("_TtC10KeepCharts24KeepBarLineChartViewBase")
 ///
 /// \param easing 
 ///
-- (void)centerViewToAnimatedWithXValue:(double)xValue yValue:(double)yValue axis:(enum AxisDependency)axis duration:(NSTimeInterval)duration;
+- (void)centerViewToAnimatedWithXValue:(double)xValue yValue:(double)yValue axis:(enum KeepAxisDependency)axis duration:(NSTimeInterval)duration;
 /// Sets custom offsets for the current <code>ChartViewPort</code> (the offsets on the sides of the actual chart window). Setting this will prevent the chart from automatically calculating it’s offsets. Use <code>resetViewPortOffsets()</code> to undo this.
 /// ONLY USE THIS WHEN YOU KNOW WHAT YOU ARE DOING, else use <code>setExtraOffsets(...)</code>.
 - (void)setViewPortOffsetsWithLeft:(CGFloat)left top:(CGFloat)top right:(CGFloat)right bottom:(CGFloat)bottom;
@@ -2153,11 +2153,11 @@ SWIFT_CLASS("_TtC10KeepCharts24KeepBarLineChartViewBase")
 ///
 /// returns:
 /// The range of the specified axis.
-- (double)getAxisRangeWithAxis:(enum AxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
+- (double)getAxisRangeWithAxis:(enum KeepAxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
 ///
 /// returns:
 /// The position (in pixels) the provided Entry has inside the chart view
-- (CGPoint)getPositionWithEntry:(KeepChartDataEntry * _Nonnull)e axis:(enum AxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
+- (CGPoint)getPositionWithEntry:(KeepChartDataEntry * _Nonnull)e axis:(enum KeepAxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
 /// is dragging enabled? (moving the chart with the finger) for the chart (this does not affect scaling).
 @property (nonatomic) BOOL dragEnabled;
 /// is dragging enabled? (moving the chart with the finger) for the chart (this does not affect scaling).
@@ -2197,10 +2197,10 @@ SWIFT_CLASS("_TtC10KeepCharts24KeepBarLineChartViewBase")
 /// (encapsulated in a <code>CGPoint</code>). This method transforms pixel coordinates to
 /// coordinates / values in the chart. This is the opposite method to
 /// <code>getPixelsForValues(...)</code>.
-- (CGPoint)valueForTouchPointWithPoint:(CGPoint)pt axis:(enum AxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
+- (CGPoint)valueForTouchPointWithPoint:(CGPoint)pt axis:(enum KeepAxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
 /// Transforms the given chart values into pixels. This is the opposite
 /// method to <code>valueForTouchPoint(...)</code>.
-- (CGPoint)pixelForValuesWithX:(double)x y:(double)y axis:(enum AxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
+- (CGPoint)pixelForValuesWithX:(double)x y:(double)y axis:(enum KeepAxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
 ///
 /// returns:
 /// The Entry object displayed at the touched position of the chart
@@ -2221,9 +2221,9 @@ SWIFT_CLASS("_TtC10KeepCharts24KeepBarLineChartViewBase")
 @property (nonatomic, readonly) BOOL isFullyZoomedOut;
 ///
 /// returns:
-/// The y-axis object to the corresponding AxisDependency. In the
+/// The y-axis object to the corresponding KeepAxisDependency. In the
 /// horizontal bar-chart, LEFT == top, RIGHT == BOTTOM
-- (KeepChartYAxis * _Nonnull)getAxis:(enum AxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
+- (KeepChartYAxis * _Nonnull)getAxis:(enum KeepAxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
 /// flag that indicates if pinch-zoom is enabled. if true, both x and y axis can be scaled simultaneously with 2 fingers, if false, x and y axis can be scaled separately
 @property (nonatomic) BOOL pinchZoomEnabled;
 /// <em>default</em>: false
@@ -2256,36 +2256,36 @@ SWIFT_CLASS("_TtC10KeepCharts24KeepBarLineChartViewBase")
 /// <code>true</code> if auto scaling on the y axis is enabled.
 @property (nonatomic, readonly) BOOL isAutoScaleMinMaxEnabled;
 /// Sets a minimum width to the specified y axis.
-- (void)setYAxisMinWidth:(enum AxisDependency)axis width:(CGFloat)width;
+- (void)setYAxisMinWidth:(enum KeepAxisDependency)axis width:(CGFloat)width;
 /// <em>default</em>: 0.0
 ///
 /// returns:
 /// The (custom) minimum width of the specified Y axis.
-- (CGFloat)getYAxisMinWidth:(enum AxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
+- (CGFloat)getYAxisMinWidth:(enum KeepAxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
 /// Sets a maximum width to the specified y axis.
 /// Zero (0.0) means there’s no maximum width
-- (void)setYAxisMaxWidth:(enum AxisDependency)axis width:(CGFloat)width;
+- (void)setYAxisMaxWidth:(enum KeepAxisDependency)axis width:(CGFloat)width;
 /// Zero (0.0) means there’s no maximum width
 /// <em>default</em>: 0.0 (no maximum specified)
 ///
 /// returns:
 /// The (custom) maximum width of the specified Y axis.
-- (CGFloat)getYAxisMaxWidth:(enum AxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
+- (CGFloat)getYAxisMaxWidth:(enum KeepAxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
 /// <ul>
 ///   <li>
 ///     returns the width of the specified y axis.
 ///   </li>
 /// </ul>
-- (CGFloat)getYAxisWidth:(enum AxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
+- (CGFloat)getYAxisWidth:(enum KeepAxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
 ///
 /// returns:
 /// The KeepTransformer class that contains all matrices and is
 /// responsible for transforming values into pixels on the screen and
 /// backwards.
-- (KeepChartTransformer * _Nonnull)getTransformerForAxis:(enum AxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
+- (KeepChartTransformer * _Nonnull)getTransformerForAxis:(enum KeepAxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
 /// the number of maximum visible drawn values on the chart only active when <code>drawValuesEnabled</code> is enabled
 @property (nonatomic) NSInteger maxVisibleCount;
-- (BOOL)isInvertedWithAxis:(enum AxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)isInvertedWithAxis:(enum KeepAxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
 ///
 /// returns:
 /// The lowest x-index (value on the x-axis) that is still visible on he chart.
@@ -2814,7 +2814,7 @@ SWIFT_PROTOCOL("_TtP10KeepCharts28KeepScatterChartDataProvider_")
 SWIFT_PROTOCOL("_TtP10KeepCharts25KeepLineChartDataProvider_")
 @protocol KeepLineChartDataProvider <KeepBarLineScatterCandleBubbleChartDataProvider>
 @property (nonatomic, readonly, strong) KeepLineChartData * _Nullable lineData;
-- (KeepChartYAxis * _Nonnull)getAxis:(enum AxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
+- (KeepChartYAxis * _Nonnull)getAxis:(enum KeepAxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -2901,12 +2901,12 @@ SWIFT_CLASS("_TtC10KeepCharts21KeepCombinedChartView")
 @end
 
 /// enum that allows to specify the order in which the different data objects for the combined-chart are drawn
-typedef SWIFT_ENUM_NAMED(NSInteger, CombinedChartDrawOrder, "DrawOrder") {
-  CombinedChartDrawOrderBar = 0,
-  CombinedChartDrawOrderBubble = 1,
-  CombinedChartDrawOrderLine = 2,
-  CombinedChartDrawOrderCandle = 3,
-  CombinedChartDrawOrderScatter = 4,
+typedef SWIFT_ENUM_NAMED(NSInteger, KeepCombinedChartDrawOrder, "DrawOrder") {
+  KeepCombinedChartDrawOrderBar = 0,
+  KeepCombinedChartDrawOrderBubble = 1,
+  KeepCombinedChartDrawOrderLine = 2,
+  KeepCombinedChartDrawOrderCandle = 3,
+  KeepCombinedChartDrawOrderScatter = 4,
 };
 
 
@@ -3119,7 +3119,7 @@ SWIFT_CLASS_NAMED("KeepHighlight")
 ///
 /// \param axis the axis the highlighted value belongs to
 ///
-- (nonnull instancetype)initWithX:(double)x y:(double)y xPx:(CGFloat)xPx yPx:(CGFloat)yPx dataIndex:(NSInteger)dataIndex dataSetIndex:(NSInteger)dataSetIndex stackIndex:(NSInteger)stackIndex axis:(enum AxisDependency)axis OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithX:(double)x y:(double)y xPx:(CGFloat)xPx yPx:(CGFloat)yPx dataIndex:(NSInteger)dataIndex dataSetIndex:(NSInteger)dataSetIndex stackIndex:(NSInteger)stackIndex axis:(enum KeepAxisDependency)axis OBJC_DESIGNATED_INITIALIZER;
 /// \param x the x-value of the highlighted value
 ///
 /// \param y the y-value of the highlighted value
@@ -3134,7 +3134,7 @@ SWIFT_CLASS_NAMED("KeepHighlight")
 ///
 /// \param axis the axis the highlighted value belongs to
 ///
-- (nonnull instancetype)initWithX:(double)x y:(double)y xPx:(CGFloat)xPx yPx:(CGFloat)yPx dataSetIndex:(NSInteger)dataSetIndex stackIndex:(NSInteger)stackIndex axis:(enum AxisDependency)axis;
+- (nonnull instancetype)initWithX:(double)x y:(double)y xPx:(CGFloat)xPx yPx:(CGFloat)yPx dataSetIndex:(NSInteger)dataSetIndex stackIndex:(NSInteger)stackIndex axis:(enum KeepAxisDependency)axis;
 /// \param x the x-value of the highlighted value
 ///
 /// \param y the y-value of the highlighted value
@@ -3151,7 +3151,7 @@ SWIFT_CLASS_NAMED("KeepHighlight")
 ///
 /// \param axis the axis the highlighted value belongs to
 ///
-- (nonnull instancetype)initWithX:(double)x y:(double)y xPx:(CGFloat)xPx yPx:(CGFloat)yPx dataSetIndex:(NSInteger)dataSetIndex axis:(enum AxisDependency)axis OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithX:(double)x y:(double)y xPx:(CGFloat)xPx yPx:(CGFloat)yPx dataSetIndex:(NSInteger)dataSetIndex axis:(enum KeepAxisDependency)axis OBJC_DESIGNATED_INITIALIZER;
 /// \param x the x-value of the highlighted value
 ///
 /// \param y the y-value of the highlighted value
@@ -3174,7 +3174,7 @@ SWIFT_CLASS_NAMED("KeepHighlight")
 @property (nonatomic, readonly) CGFloat yPx;
 @property (nonatomic, readonly) NSInteger dataSetIndex;
 @property (nonatomic, readonly) NSInteger stackIndex;
-@property (nonatomic, readonly) enum AxisDependency axis;
+@property (nonatomic, readonly) enum KeepAxisDependency axis;
 @property (nonatomic, readonly) BOOL isStacked;
 /// Sets the x- and y-position (pixels) where this highlight was last drawn.
 - (void)setDrawWithX:(CGFloat)x y:(CGFloat)y;
@@ -3261,7 +3261,7 @@ SWIFT_CLASS("_TtC10KeepCharts26KeepHorizontalBarChartView")
 @interface KeepHorizontalBarChartView : KeepRenamedBarChartView
 - (CGPoint)getMarkerPositionWithHighlight:(KeepChartHighlight * _Nonnull)highlight SWIFT_WARN_UNUSED_RESULT;
 - (CGRect)getBarBoundsWithEntry:(KeepBarChartDataEntry * _Nonnull)e SWIFT_WARN_UNUSED_RESULT;
-- (CGPoint)getPositionWithEntry:(KeepChartDataEntry * _Nonnull)e axis:(enum AxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
+- (CGPoint)getPositionWithEntry:(KeepChartDataEntry * _Nonnull)e axis:(enum KeepAxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
 - (KeepChartHighlight * _Nullable)getHighlightByTouchPoint:(CGPoint)pt SWIFT_WARN_UNUSED_RESULT;
 ///
 /// returns:
@@ -3274,9 +3274,9 @@ SWIFT_CLASS("_TtC10KeepCharts26KeepHorizontalBarChartView")
 - (void)setVisibleXRangeMaximum:(double)maxXRange;
 - (void)setVisibleXRangeMinimum:(double)minXRange;
 - (void)setVisibleXRangeWithMinXRange:(double)minXRange maxXRange:(double)maxXRange;
-- (void)setVisibleYRangeMaximum:(double)maxYRange axis:(enum AxisDependency)axis;
-- (void)setVisibleYRangeMinimum:(double)minYRange axis:(enum AxisDependency)axis;
-- (void)setVisibleYRangeWithMinYRange:(double)minYRange maxYRange:(double)maxYRange axis:(enum AxisDependency)axis;
+- (void)setVisibleYRangeMaximum:(double)maxYRange axis:(enum KeepAxisDependency)axis;
+- (void)setVisibleYRangeMinimum:(double)minYRange axis:(enum KeepAxisDependency)axis;
+- (void)setVisibleYRangeWithMinYRange:(double)minYRange maxYRange:(double)maxYRange axis:(enum KeepAxisDependency)axis;
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -4739,8 +4739,8 @@ SWIFT_CLASS_NAMED("KeepYAxis")
 /// <em>default</em>: CGFloat.infinity
 @property (nonatomic) CGFloat maxWidth;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)initWithPosition:(enum AxisDependency)position OBJC_DESIGNATED_INITIALIZER;
-@property (nonatomic, readonly) enum AxisDependency axisDependency;
+- (nonnull instancetype)initWithPosition:(enum KeepAxisDependency)position OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic, readonly) enum KeepAxisDependency axisDependency;
 - (CGSize)requiredSize SWIFT_WARN_UNUSED_RESULT;
 - (CGFloat)getRequiredHeightSpace SWIFT_WARN_UNUSED_RESULT;
 ///
@@ -4759,9 +4759,9 @@ typedef SWIFT_ENUM_NAMED(NSInteger, KeepYAxisLabelPosition, "LabelPosition") {
 };
 
 /// Enum that specifies the axis a DataSet should be plotted against, either Left or Right.
-typedef SWIFT_ENUM(NSInteger, AxisDependency) {
-  AxisDependencyLeft = 0,
-  AxisDependencyRight = 1,
+typedef SWIFT_ENUM(NSInteger, KeepAxisDependency) {
+  KeepAxisDependencyLeft = 0,
+  KeepAxisDependencyRight = 1,
 };
 
 
@@ -4813,7 +4813,7 @@ SWIFT_CLASS("_TtC10KeepCharts27KeepYAxisRendererRadarChart")
 
 SWIFT_CLASS_NAMED("KeepZoomViewJob")
 @interface KeepZoomChartViewJob : KeepChartViewPortJob
-- (nonnull instancetype)initWithViewPortHandler:(KeepChartViewPortHandler * _Nonnull)viewPortHandler scaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY xValue:(double)xValue yValue:(double)yValue transformer:(KeepChartTransformer * _Nonnull)transformer axis:(enum AxisDependency)axis view:(KeepChartViewBase * _Nonnull)view OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithViewPortHandler:(KeepChartViewPortHandler * _Nonnull)viewPortHandler scaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY xValue:(double)xValue yValue:(double)yValue transformer:(KeepChartTransformer * _Nonnull)transformer axis:(enum KeepAxisDependency)axis view:(KeepChartViewBase * _Nonnull)view OBJC_DESIGNATED_INITIALIZER;
 - (void)doJob;
 - (nonnull instancetype)initWithViewPortHandler:(KeepChartViewPortHandler * _Nonnull)viewPortHandler xValue:(double)xValue yValue:(double)yValue transformer:(KeepChartTransformer * _Nonnull)transformer view:(KeepChartViewBase * _Nonnull)view SWIFT_UNAVAILABLE;
 @end
