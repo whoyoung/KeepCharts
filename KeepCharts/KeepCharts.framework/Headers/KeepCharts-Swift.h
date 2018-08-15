@@ -1453,6 +1453,84 @@ SWIFT_CLASS("_TtC10KeepCharts20KeepBarChartRenderer")
 - (nonnull instancetype)initWithAnimator:(KeepChartAnimator * _Nonnull)animator viewPortHandler:(KeepChartViewPortHandler * _Nonnull)viewPortHandler SWIFT_UNAVAILABLE;
 @end
 
+
+SWIFT_PROTOCOL_NAMED("KeepIHighlighter")
+@protocol KeepIChartHighlighter
+/// \param x 
+///
+/// \param y 
+///
+///
+/// returns:
+///
+- (KeepChartHighlight * _Nullable)getHighlightWithX:(CGFloat)x y:(CGFloat)y SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS("_TtC10KeepCharts20KeepChartHighlighter")
+@interface KeepChartHighlighter : NSObject <KeepIChartHighlighter>
+/// instance of the data-provider
+@property (nonatomic, weak) id <KeepChartDataProvider> _Nullable chart;
+- (nonnull instancetype)initWithChart:(id <KeepChartDataProvider> _Nonnull)chart OBJC_DESIGNATED_INITIALIZER;
+- (KeepChartHighlight * _Nullable)getHighlightWithX:(CGFloat)x y:(CGFloat)y SWIFT_WARN_UNUSED_RESULT;
+/// \param x 
+///
+///
+/// returns:
+///
+- (CGPoint)getValsForTouchWithX:(CGFloat)x y:(CGFloat)y SWIFT_WARN_UNUSED_RESULT;
+/// \param xValue 
+///
+/// \param x 
+///
+/// \param y 
+///
+///
+/// returns:
+///
+- (KeepChartHighlight * _Nullable)getHighlightWithXValue:(double)xVal x:(CGFloat)x y:(CGFloat)y SWIFT_WARN_UNUSED_RESULT;
+/// \param xValue the transformed x-value of the x-touch position
+///
+/// \param x touch position
+///
+/// \param y touch position
+///
+///
+/// returns:
+///
+- (NSArray<KeepChartHighlight *> * _Nonnull)getHighlightsWithXValue:(double)xValue x:(CGFloat)x y:(CGFloat)y SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS_NAMED("KeepBarHighlighter")
+@interface KeepBarChartHighlighter : KeepChartHighlighter
+- (KeepChartHighlight * _Nullable)getHighlightWithX:(CGFloat)x y:(CGFloat)y SWIFT_WARN_UNUSED_RESULT;
+/// This method creates the KeepHighlight object that also indicates which value of a stacked BarEntry has been selected.
+/// \param high the KeepHighlight to work with looking for stacked values
+///
+/// \param set 
+///
+/// \param xIndex 
+///
+/// \param yValue 
+///
+///
+/// returns:
+///
+- (KeepChartHighlight * _Nullable)getStackedHighlightWithHigh:(KeepChartHighlight * _Nonnull)high set:(id <KeepIBarChartDataSet> _Nonnull)set xValue:(double)xValue yValue:(double)yValue SWIFT_WARN_UNUSED_RESULT;
+/// \param entry 
+///
+/// \param value 
+///
+///
+/// returns:
+///
+- (NSInteger)getClosestStackIndexWithRanges:(NSArray<KeepChartRange *> * _Nullable)ranges value:(double)value SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)initWithChart:(id <KeepChartDataProvider> _Nonnull)chart OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class UITouch;
 @class UIEvent;
 @class NSCoder;
@@ -1474,7 +1552,6 @@ SWIFT_CLASS("_TtC10KeepCharts8NSUIView")
 @class KeepChartXAxis;
 @class KeepChartDescription;
 @protocol KeepChartViewDelegate;
-@protocol KeepIChartHighlighter;
 @protocol KeepIChartMarker;
 @class KeepChartLegend;
 @class KeepChartLegendRenderer;
@@ -2218,142 +2295,6 @@ SWIFT_CLASS("_TtC10KeepCharts24KeepBarLineChartViewBase")
 /// The highest x-index (value on the x-axis) that is still visible on the chart.
 @property (nonatomic, readonly) double highestVisibleX;
 @end
-
-
-/// Chart that draws bars.
-SWIFT_CLASS("_TtC10KeepCharts16KeepBarChartView")
-@interface KeepBarChartView : KeepBarLineChartViewBase <KeepBarChartDataProvider>
-///
-/// returns:
-/// The KeepHighlight object (contains x-index and DataSet index) of the selected value at the given touch point inside the BarChart.
-- (KeepChartHighlight * _Nullable)getHighlightByTouchPoint:(CGPoint)pt SWIFT_WARN_UNUSED_RESULT;
-///
-/// returns:
-/// The bounding box of the specified Entry in the specified DataSet. Returns null if the Entry could not be found in the charts data.
-- (CGRect)getBarBoundsWithEntry:(KeepBarChartDataEntry * _Nonnull)e SWIFT_WARN_UNUSED_RESULT;
-/// Groups all BarDataSet objects this data object holds together by modifying the x-value of their entries.
-/// Previously set x-values of entries will be overwritten. Leaves space between bars and groups as specified by the parameters.
-/// Calls <code>notifyDataSetChanged()</code> afterwards.
-/// \param fromX the starting point on the x-axis where the grouping should begin
-///
-/// \param groupSpace the space between groups of bars in values (not pixels) e.g. 0.8f for bar width 1f
-///
-/// \param barSpace the space between individual bars in values (not pixels) e.g. 0.1f for bar width 1f
-///
-- (void)groupBarsFromX:(double)fromX groupSpace:(double)groupSpace barSpace:(double)barSpace;
-/// KeepHighlights the value at the given x-value in the given DataSet. Provide -1 as the dataSetIndex to undo all highlighting.
-/// \param x 
-///
-/// \param dataSetIndex 
-///
-/// \param stackIndex the index inside the stack - only relevant for stacked entries
-///
-- (void)highlightValueWithX:(double)x dataSetIndex:(NSInteger)dataSetIndex stackIndex:(NSInteger)stackIndex;
-/// if set to true, all values are drawn above their bars, instead of below their top
-@property (nonatomic) BOOL drawValueAboveBarEnabled;
-/// if set to true, a grey area is drawn behind each bar that indicates the maximum value
-@property (nonatomic) BOOL drawBarShadowEnabled;
-/// Adds half of the bar width to each side of the x-axis range in order to allow the bars of the barchart to be fully displayed.
-/// <em>default</em>: false
-@property (nonatomic) BOOL fitBars;
-/// Set this to <code>true</code> to make the highlight operation full-bar oriented, <code>false</code> to make it highlight single values (relevant only for stacked).
-/// If enabled, highlighting operations will highlight the whole bar, even if only a single stack entry was tapped.
-@property (nonatomic) BOOL highlightFullBarEnabled;
-///
-/// returns:
-/// <code>true</code> the highlight is be full-bar oriented, <code>false</code> ifsingle-value
-@property (nonatomic, readonly) BOOL isHighlightFullBarEnabled;
-@property (nonatomic, readonly, strong) KeepBarChartData * _Nullable barData;
-///
-/// returns:
-/// <code>true</code> if drawing values above bars is enabled, <code>false</code> ifnot
-@property (nonatomic, readonly) BOOL isDrawValueAboveBarEnabled;
-///
-/// returns:
-/// <code>true</code> if drawing shadows (maxvalue) for each bar is enabled, <code>false</code> ifnot
-@property (nonatomic, readonly) BOOL isDrawBarShadowEnabled;
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_PROTOCOL_NAMED("KeepIHighlighter")
-@protocol KeepIChartHighlighter
-/// \param x 
-///
-/// \param y 
-///
-///
-/// returns:
-///
-- (KeepChartHighlight * _Nullable)getHighlightWithX:(CGFloat)x y:(CGFloat)y SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-SWIFT_CLASS("_TtC10KeepCharts20KeepChartHighlighter")
-@interface KeepChartHighlighter : NSObject <KeepIChartHighlighter>
-/// instance of the data-provider
-@property (nonatomic, weak) id <KeepChartDataProvider> _Nullable chart;
-- (nonnull instancetype)initWithChart:(id <KeepChartDataProvider> _Nonnull)chart OBJC_DESIGNATED_INITIALIZER;
-- (KeepChartHighlight * _Nullable)getHighlightWithX:(CGFloat)x y:(CGFloat)y SWIFT_WARN_UNUSED_RESULT;
-/// \param x 
-///
-///
-/// returns:
-///
-- (CGPoint)getValsForTouchWithX:(CGFloat)x y:(CGFloat)y SWIFT_WARN_UNUSED_RESULT;
-/// \param xValue 
-///
-/// \param x 
-///
-/// \param y 
-///
-///
-/// returns:
-///
-- (KeepChartHighlight * _Nullable)getHighlightWithXValue:(double)xVal x:(CGFloat)x y:(CGFloat)y SWIFT_WARN_UNUSED_RESULT;
-/// \param xValue the transformed x-value of the x-touch position
-///
-/// \param x touch position
-///
-/// \param y touch position
-///
-///
-/// returns:
-///
-- (NSArray<KeepChartHighlight *> * _Nonnull)getHighlightsWithXValue:(double)xValue x:(CGFloat)x y:(CGFloat)y SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS_NAMED("KeepBarHighlighter")
-@interface KeepBarChartHighlighter : KeepChartHighlighter
-- (KeepChartHighlight * _Nullable)getHighlightWithX:(CGFloat)x y:(CGFloat)y SWIFT_WARN_UNUSED_RESULT;
-/// This method creates the KeepHighlight object that also indicates which value of a stacked BarEntry has been selected.
-/// \param high the KeepHighlight to work with looking for stacked values
-///
-/// \param set 
-///
-/// \param xIndex 
-///
-/// \param yValue 
-///
-///
-/// returns:
-///
-- (KeepChartHighlight * _Nullable)getStackedHighlightWithHigh:(KeepChartHighlight * _Nonnull)high set:(id <KeepIBarChartDataSet> _Nonnull)set xValue:(double)xValue yValue:(double)yValue SWIFT_WARN_UNUSED_RESULT;
-/// \param entry 
-///
-/// \param value 
-///
-///
-/// returns:
-///
-- (NSInteger)getClosestStackIndexWithRanges:(NSArray<KeepChartRange *> * _Nullable)ranges value:(double)value SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)initWithChart:(id <KeepChartDataProvider> _Nonnull)chart OBJC_DESIGNATED_INITIALIZER;
-@end
-
 
 
 
@@ -3258,9 +3199,66 @@ SWIFT_CLASS("_TtC10KeepCharts30KeepHorizontalBarChartRenderer")
 @end
 
 
+/// Chart that draws bars.
+SWIFT_CLASS("_TtC10KeepCharts23KeepRenamedBarChartView")
+@interface KeepRenamedBarChartView : KeepBarLineChartViewBase <KeepBarChartDataProvider>
+///
+/// returns:
+/// The KeepHighlight object (contains x-index and DataSet index) of the selected value at the given touch point inside the BarChart.
+- (KeepChartHighlight * _Nullable)getHighlightByTouchPoint:(CGPoint)pt SWIFT_WARN_UNUSED_RESULT;
+///
+/// returns:
+/// The bounding box of the specified Entry in the specified DataSet. Returns null if the Entry could not be found in the charts data.
+- (CGRect)getBarBoundsWithEntry:(KeepBarChartDataEntry * _Nonnull)e SWIFT_WARN_UNUSED_RESULT;
+/// Groups all BarDataSet objects this data object holds together by modifying the x-value of their entries.
+/// Previously set x-values of entries will be overwritten. Leaves space between bars and groups as specified by the parameters.
+/// Calls <code>notifyDataSetChanged()</code> afterwards.
+/// \param fromX the starting point on the x-axis where the grouping should begin
+///
+/// \param groupSpace the space between groups of bars in values (not pixels) e.g. 0.8f for bar width 1f
+///
+/// \param barSpace the space between individual bars in values (not pixels) e.g. 0.1f for bar width 1f
+///
+- (void)groupBarsFromX:(double)fromX groupSpace:(double)groupSpace barSpace:(double)barSpace;
+/// KeepHighlights the value at the given x-value in the given DataSet. Provide -1 as the dataSetIndex to undo all highlighting.
+/// \param x 
+///
+/// \param dataSetIndex 
+///
+/// \param stackIndex the index inside the stack - only relevant for stacked entries
+///
+- (void)highlightValueWithX:(double)x dataSetIndex:(NSInteger)dataSetIndex stackIndex:(NSInteger)stackIndex;
+/// if set to true, all values are drawn above their bars, instead of below their top
+@property (nonatomic) BOOL drawValueAboveBarEnabled;
+/// if set to true, a grey area is drawn behind each bar that indicates the maximum value
+@property (nonatomic) BOOL drawBarShadowEnabled;
+/// Adds half of the bar width to each side of the x-axis range in order to allow the bars of the barchart to be fully displayed.
+/// <em>default</em>: false
+@property (nonatomic) BOOL fitBars;
+/// Set this to <code>true</code> to make the highlight operation full-bar oriented, <code>false</code> to make it highlight single values (relevant only for stacked).
+/// If enabled, highlighting operations will highlight the whole bar, even if only a single stack entry was tapped.
+@property (nonatomic) BOOL highlightFullBarEnabled;
+///
+/// returns:
+/// <code>true</code> the highlight is be full-bar oriented, <code>false</code> ifsingle-value
+@property (nonatomic, readonly) BOOL isHighlightFullBarEnabled;
+@property (nonatomic, readonly, strong) KeepBarChartData * _Nullable barData;
+///
+/// returns:
+/// <code>true</code> if drawing values above bars is enabled, <code>false</code> ifnot
+@property (nonatomic, readonly) BOOL isDrawValueAboveBarEnabled;
+///
+/// returns:
+/// <code>true</code> if drawing shadows (maxvalue) for each bar is enabled, <code>false</code> ifnot
+@property (nonatomic, readonly) BOOL isDrawBarShadowEnabled;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 /// BarChart with horizontal bar orientation. In this implementation, x- and y-axis are switched.
 SWIFT_CLASS("_TtC10KeepCharts26KeepHorizontalBarChartView")
-@interface KeepHorizontalBarChartView : KeepBarChartView
+@interface KeepHorizontalBarChartView : KeepRenamedBarChartView
 - (CGPoint)getMarkerPositionWithHighlight:(KeepChartHighlight * _Nonnull)highlight SWIFT_WARN_UNUSED_RESULT;
 - (CGRect)getBarBoundsWithEntry:(KeepBarChartDataEntry * _Nonnull)e SWIFT_WARN_UNUSED_RESULT;
 - (CGPoint)getPositionWithEntry:(KeepChartDataEntry * _Nonnull)e axis:(enum AxisDependency)axis SWIFT_WARN_UNUSED_RESULT;
@@ -4346,6 +4344,7 @@ SWIFT_CLASS_NAMED("KeepRange")
 
 
 
+
 SWIFT_CLASS("_TtC10KeepCharts20KeepScatterChartData")
 @interface KeepScatterChartData : KeepBarLineScatterCandleBubbleChartData
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -4669,7 +4668,7 @@ SWIFT_CLASS_NAMED("KeepXAxisRenderer")
 
 SWIFT_CLASS("_TtC10KeepCharts35KeepXAxisRendererHorizontalBarChart")
 @interface KeepXAxisRendererHorizontalBarChart : KeepChartXAxisRenderer
-- (nonnull instancetype)initWithViewPortHandler:(KeepChartViewPortHandler * _Nonnull)viewPortHandler xAxis:(KeepChartXAxis * _Nullable)xAxis transformer:(KeepChartTransformer * _Nullable)transformer chart:(KeepBarChartView * _Nonnull)chart OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithViewPortHandler:(KeepChartViewPortHandler * _Nonnull)viewPortHandler xAxis:(KeepChartXAxis * _Nullable)xAxis transformer:(KeepChartTransformer * _Nullable)transformer chart:(KeepRenamedBarChartView * _Nonnull)chart OBJC_DESIGNATED_INITIALIZER;
 - (void)computeAxisWithMin:(double)min max:(double)max inverted:(BOOL)inverted;
 - (void)computeSize;
 - (void)renderAxisLabelsWithContext:(CGContextRef _Nonnull)context;

@@ -17,7 +17,7 @@ import CoreGraphics
 #endif
 
 /// BarChart with horizontal bar orientation. In this implementation, x- and y-axis are switched.
-open class KeepHorizontalBarChartView: KeepBarChartView
+open class KeepHorizontalBarChartView: KeepRenamedBarChartView
 {
     internal override func initialize()
     {

@@ -18,9 +18,9 @@ import CoreGraphics
 
 open class KeepXAxisRendererHorizontalBarChart: KeepXAxisRenderer
 {
-    internal weak var chart: KeepBarChartView?
+    internal weak var chart: KeepRenamedBarChartView?
     
-    @objc public init(viewPortHandler: KeepViewPortHandler, xAxis: KeepXAxis?, transformer: KeepTransformer?, chart: KeepBarChartView)
+    @objc public init(viewPortHandler: KeepViewPortHandler, xAxis: KeepXAxis?, transformer: KeepTransformer?, chart: KeepRenamedBarChartView)
     {
         super.init(viewPortHandler: viewPortHandler, xAxis: xAxis, transformer: transformer)
         

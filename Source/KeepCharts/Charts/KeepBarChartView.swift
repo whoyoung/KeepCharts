@@ -1,5 +1,5 @@
 //
-//  KeepBarChartView.swift
+//  KeepRenamedBarChartView.swift
 //  Charts
 //
 //  Copyright 2015 Daniel Cohen Gindi & Philipp Jahoda
@@ -13,7 +13,7 @@ import Foundation
 import CoreGraphics
 
 /// Chart that draws bars.
-open class KeepBarChartView: KeepBarLineChartViewBase, KeepBarChartDataProvider
+open class KeepRenamedBarChartView: KeepBarLineChartViewBase, KeepBarChartDataProvider
 {
     /// if set to true, all values are drawn above their bars, instead of below their top
     private var _drawValueAboveBarEnabled = true
