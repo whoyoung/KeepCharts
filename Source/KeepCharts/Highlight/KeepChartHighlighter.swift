@@ -54,7 +54,7 @@ open class KeepChartHighlighter : NSObject, KeepIHighlighter
         let leftAxisMinDist = getMinimumDistance(closestValues: closestValues, y: y, axis: .left)
         let rightAxisMinDist = getMinimumDistance(closestValues: closestValues, y: y, axis: .right)
         
-        let axis: KeepYAxis.AxisDependency = leftAxisMinDist < rightAxisMinDist ? .left : .right
+        let axis: KeepYAxis.KeepAxisDependency = leftAxisMinDist < rightAxisMinDist ? .left : .right
         
         let detail = closestSelectionDetailByPixel(closestValues: closestValues, x: x, y: y, axis: axis, minSelectionDistance: chart.maxHighlightDistance)
         
@@ -125,7 +125,7 @@ open class KeepChartHighlighter : NSObject, KeepIHighlighter
         closestValues: [KeepHighlight],
         x: CGFloat,
         y: CGFloat,
-        axis: KeepYAxis.AxisDependency?,
+        axis: KeepYAxis.KeepAxisDependency?,
         minSelectionDistance: CGFloat) -> KeepHighlight?
     {
         var distance = minSelectionDistance
@@ -152,7 +152,7 @@ open class KeepChartHighlighter : NSObject, KeepIHighlighter
     internal func getMinimumDistance(
         closestValues: [KeepHighlight],
         y: CGFloat,
-        axis: KeepYAxis.AxisDependency) -> CGFloat
+        axis: KeepYAxis.KeepAxisDependency) -> CGFloat
     {
         var distance = CGFloat.greatestFiniteMagnitude
         

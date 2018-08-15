@@ -32,7 +32,7 @@ open class KeepYAxis: KeepAxisBase
     
     ///  Enum that specifies the axis a DataSet should be plotted against, either Left or Right.
     @objc
-    public enum AxisDependency: Int
+    public enum KeepAxisDependency: Int
     {
         case left
         case right
@@ -74,7 +74,7 @@ open class KeepYAxis: KeepAxisBase
     @objc open var labelPosition = LabelPosition.outsideChart
     
     /// the side this axis object represents
-    private var _axisDependency = AxisDependency.left
+    private var _axisDependency = KeepAxisDependency.left
     
     /// the minimum width that the axis should take
     /// 
@@ -94,7 +94,7 @@ open class KeepYAxis: KeepAxisBase
         self.yOffset = 0.0
     }
     
-    @objc public init(position: AxisDependency)
+    @objc public init(position: KeepAxisDependency)
     {
         super.init()
         
@@ -103,7 +103,7 @@ open class KeepYAxis: KeepAxisBase
         self.yOffset = 0.0
     }
     
-    @objc open var axisDependency: AxisDependency
+    @objc open var axisDependency: KeepAxisDependency
     {
         return _axisDependency
     }

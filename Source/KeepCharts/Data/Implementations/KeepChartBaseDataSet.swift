@@ -196,7 +196,7 @@ open class KeepChartBaseDataSet: NSObject, KeepIChartDataSet
     open var label: String? = "DataSet"
     
     /// The axis this DataSet should be plotted against.
-    open var axisDependency = KeepYAxis.AxisDependency.left
+    open var axisDependency = KeepYAxis.KeepAxisDependency.left
     
     /// - returns: The color at the given index of the DataSet's color array.
     /// This prevents out-of-bounds by performing a modulus on the color index, so colours will repeat themselves.

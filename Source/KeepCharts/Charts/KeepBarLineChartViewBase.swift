@@ -1060,7 +1060,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
                scaleY: CGFloat,
                xValue: Double,
                yValue: Double,
-               axis: KeepYAxis.AxisDependency)
+               axis: KeepYAxis.KeepAxisDependency)
     {
         let job = KeepZoomViewJob(
             viewPortHandler: viewPortHandler,
@@ -1108,7 +1108,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
         scaleY: CGFloat,
         xValue: Double,
         yValue: Double,
-        axis: KeepYAxis.AxisDependency,
+        axis: KeepYAxis.KeepAxisDependency,
         duration: TimeInterval,
         easing: KeepChartEasingFunctionBlock?)
     {
@@ -1150,7 +1150,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
         scaleY: CGFloat,
         xValue: Double,
         yValue: Double,
-        axis: KeepYAxis.AxisDependency,
+        axis: KeepYAxis.KeepAxisDependency,
         duration: TimeInterval,
         easingOption: KeepChartEasingOption)
     {
@@ -1171,7 +1171,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
         scaleY: CGFloat,
         xValue: Double,
         yValue: Double,
-        axis: KeepYAxis.AxisDependency,
+        axis: KeepYAxis.KeepAxisDependency,
         duration: TimeInterval)
     {
         zoomAndCenterViewAnimated(scaleX: scaleX, scaleY: scaleY, xValue: xValue, yValue: yValue, axis: axis, duration: duration, easingOption: .easeInOutSine)
@@ -1240,7 +1240,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
     ///
     /// - parameter yRange:
     /// - parameter axis: - the axis for which this limit should apply
-    @objc open func setVisibleYRangeMaximum(_ maxYRange: Double, axis: KeepYAxis.AxisDependency)
+    @objc open func setVisibleYRangeMaximum(_ maxYRange: Double, axis: KeepYAxis.KeepAxisDependency)
     {
         let yScale = getAxisRange(axis: axis) / maxYRange
         _viewPortHandler.setMinimumScaleY(CGFloat(yScale))
@@ -1250,7 +1250,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
     ///
     /// - parameter yRange:
     /// - parameter axis: - the axis for which this limit should apply
-    @objc open func setVisibleYRangeMinimum(_ minYRange: Double, axis: KeepYAxis.AxisDependency)
+    @objc open func setVisibleYRangeMinimum(_ minYRange: Double, axis: KeepYAxis.KeepAxisDependency)
     {
         let yScale = getAxisRange(axis: axis) / minYRange
         _viewPortHandler.setMaximumScaleY(CGFloat(yScale))
@@ -1261,7 +1261,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
     /// - parameter minYRange:
     /// - parameter maxYRange:
     /// - parameter axis:
-    @objc open func setVisibleYRange(minYRange: Double, maxYRange: Double, axis: KeepYAxis.AxisDependency)
+    @objc open func setVisibleYRange(minYRange: Double, maxYRange: Double, axis: KeepYAxis.KeepAxisDependency)
     {
         let minScale = getAxisRange(axis: axis) / minYRange
         let maxScale = getAxisRange(axis: axis) / maxYRange
@@ -1287,7 +1287,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
     /// 
     /// - parameter yValue:
     /// - parameter axis: - which axis should be used as a reference for the y-axis
-    @objc open func moveViewToY(_ yValue: Double, axis: KeepYAxis.AxisDependency)
+    @objc open func moveViewToY(_ yValue: Double, axis: KeepYAxis.KeepAxisDependency)
     {
         let yInView = getAxisRange(axis: axis) / Double(_viewPortHandler.scaleY)
         
@@ -1307,7 +1307,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
     /// - parameter xValue:
     /// - parameter yValue:
     /// - parameter axis: - which axis should be used as a reference for the y-axis
-    @objc open func moveViewTo(xValue: Double, yValue: Double, axis: KeepYAxis.AxisDependency)
+    @objc open func moveViewTo(xValue: Double, yValue: Double, axis: KeepYAxis.KeepAxisDependency)
     {
         let yInView = getAxisRange(axis: axis) / Double(_viewPortHandler.scaleY)
         
@@ -1332,7 +1332,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
     @objc open func moveViewToAnimated(
         xValue: Double,
         yValue: Double,
-        axis: KeepYAxis.AxisDependency,
+        axis: KeepYAxis.KeepAxisDependency,
         duration: TimeInterval,
         easing: KeepChartEasingFunctionBlock?)
     {
@@ -1367,7 +1367,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
     @objc open func moveViewToAnimated(
         xValue: Double,
         yValue: Double,
-        axis: KeepYAxis.AxisDependency,
+        axis: KeepYAxis.KeepAxisDependency,
         duration: TimeInterval,
         easingOption: KeepChartEasingOption)
     {
@@ -1385,7 +1385,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
     @objc open func moveViewToAnimated(
         xValue: Double,
         yValue: Double,
-        axis: KeepYAxis.AxisDependency,
+        axis: KeepYAxis.KeepAxisDependency,
         duration: TimeInterval)
     {
         moveViewToAnimated(xValue: xValue, yValue: yValue, axis: axis, duration: duration, easingOption: .easeInOutSine)
@@ -1400,7 +1400,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
     @objc open func centerViewTo(
         xValue: Double,
         yValue: Double,
-        axis: KeepYAxis.AxisDependency)
+        axis: KeepYAxis.KeepAxisDependency)
     {
         let yInView = getAxisRange(axis: axis) / Double(_viewPortHandler.scaleY)
         let xInView = xAxis.axisRange / Double(_viewPortHandler.scaleX)
@@ -1425,7 +1425,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
     @objc open func centerViewToAnimated(
         xValue: Double,
         yValue: Double,
-        axis: KeepYAxis.AxisDependency,
+        axis: KeepYAxis.KeepAxisDependency,
         duration: TimeInterval,
         easing: KeepChartEasingFunctionBlock?)
     {
@@ -1460,7 +1460,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
     @objc open func centerViewToAnimated(
         xValue: Double,
         yValue: Double,
-        axis: KeepYAxis.AxisDependency,
+        axis: KeepYAxis.KeepAxisDependency,
         duration: TimeInterval,
         easingOption: KeepChartEasingOption)
     {
@@ -1477,7 +1477,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
     @objc open func centerViewToAnimated(
         xValue: Double,
         yValue: Double,
-        axis: KeepYAxis.AxisDependency,
+        axis: KeepYAxis.KeepAxisDependency,
         duration: TimeInterval)
     {
         centerViewToAnimated(xValue: xValue, yValue: yValue, axis: axis, duration: duration, easingOption: .easeInOutSine)
@@ -1513,7 +1513,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
     // MARK: - Accessors
     
     /// - returns: The range of the specified axis.
-    @objc open func getAxisRange(axis: KeepYAxis.AxisDependency) -> Double
+    @objc open func getAxisRange(axis: KeepYAxis.KeepAxisDependency) -> Double
     {
         if axis == .left
         {
@@ -1526,7 +1526,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
     }
 
     /// - returns: The position (in pixels) the provided Entry has inside the chart view
-    @objc open func getPosition(entry e: KeepChartDataEntry, axis: KeepYAxis.AxisDependency) -> CGPoint
+    @objc open func getPosition(entry e: KeepChartDataEntry, axis: KeepYAxis.KeepAxisDependency) -> CGPoint
     {
         var vals = CGPoint(x: CGFloat(e.x), y: CGFloat(e.y))
 
@@ -1687,14 +1687,14 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
     /// (encapsulated in a `CGPoint`). This method transforms pixel coordinates to
     /// coordinates / values in the chart. This is the opposite method to
     /// `getPixelsForValues(...)`.
-    @objc open func valueForTouchPoint(point pt: CGPoint, axis: KeepYAxis.AxisDependency) -> CGPoint
+    @objc open func valueForTouchPoint(point pt: CGPoint, axis: KeepYAxis.KeepAxisDependency) -> CGPoint
     {
         return getTransformer(forAxis: axis).valueForTouchPoint(pt)
     }
 
     /// Transforms the given chart values into pixels. This is the opposite
     /// method to `valueForTouchPoint(...)`.
-    @objc open func pixelForValues(x: Double, y: Double, axis: KeepYAxis.AxisDependency) -> CGPoint
+    @objc open func pixelForValues(x: Double, y: Double, axis: KeepYAxis.KeepAxisDependency) -> CGPoint
     {
         return getTransformer(forAxis: axis).pixelForValues(x: x, y: y)
     }
@@ -1743,9 +1743,9 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
     /// if the chart is fully zoomed out, return true
     @objc open var isFullyZoomedOut: Bool { return _viewPortHandler.isFullyZoomedOut }
 
-    /// - returns: The y-axis object to the corresponding AxisDependency. In the
+    /// - returns: The y-axis object to the corresponding KeepAxisDependency. In the
     /// horizontal bar-chart, LEFT == top, RIGHT == BOTTOM
-    @objc open func getAxis(_ axis: KeepYAxis.AxisDependency) -> KeepYAxis
+    @objc open func getAxis(_ axis: KeepYAxis.KeepAxisDependency) -> KeepYAxis
     {
         if axis == .left
         {
@@ -1826,7 +1826,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
     @objc open var isAutoScaleMinMaxEnabled : Bool { return autoScaleMinMaxEnabled }
     
     /// Sets a minimum width to the specified y axis.
-    @objc open func setYAxisMinWidth(_ axis: KeepYAxis.AxisDependency, width: CGFloat)
+    @objc open func setYAxisMinWidth(_ axis: KeepYAxis.KeepAxisDependency, width: CGFloat)
     {
         if axis == .left
         {
@@ -1840,7 +1840,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
     
     /// **default**: 0.0
     /// - returns: The (custom) minimum width of the specified Y axis.
-    @objc open func getYAxisMinWidth(_ axis: KeepYAxis.AxisDependency) -> CGFloat
+    @objc open func getYAxisMinWidth(_ axis: KeepYAxis.KeepAxisDependency) -> CGFloat
     {
         if axis == .left
         {
@@ -1853,7 +1853,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
     }
     /// Sets a maximum width to the specified y axis.
     /// Zero (0.0) means there's no maximum width
-    @objc open func setYAxisMaxWidth(_ axis: KeepYAxis.AxisDependency, width: CGFloat)
+    @objc open func setYAxisMaxWidth(_ axis: KeepYAxis.KeepAxisDependency, width: CGFloat)
     {
         if axis == .left
         {
@@ -1869,7 +1869,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
     ///
     /// **default**: 0.0 (no maximum specified)
     /// - returns: The (custom) maximum width of the specified Y axis.
-    @objc open func getYAxisMaxWidth(_ axis: KeepYAxis.AxisDependency) -> CGFloat
+    @objc open func getYAxisMaxWidth(_ axis: KeepYAxis.KeepAxisDependency) -> CGFloat
     {
         if axis == .left
         {
@@ -1882,7 +1882,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
     }
 
     /// - returns the width of the specified y axis.
-    @objc open func getYAxisWidth(_ axis: KeepYAxis.AxisDependency) -> CGFloat
+    @objc open func getYAxisWidth(_ axis: KeepYAxis.KeepAxisDependency) -> CGFloat
     {
         if axis == .left
         {
@@ -1899,7 +1899,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
     /// - returns: The KeepTransformer class that contains all matrices and is
     /// responsible for transforming values into pixels on the screen and
     /// backwards.
-    open func getTransformer(forAxis axis: KeepYAxis.AxisDependency) -> KeepTransformer
+    open func getTransformer(forAxis axis: KeepYAxis.KeepAxisDependency) -> KeepTransformer
     {
         if axis == .left
         {
@@ -1924,7 +1924,7 @@ open class KeepBarLineChartViewBase: KeepChartViewBase, KeepBarLineScatterCandle
         }
     }
     
-    open func isInverted(axis: KeepYAxis.AxisDependency) -> Bool
+    open func isInverted(axis: KeepYAxis.KeepAxisDependency) -> Bool
     {
         return getAxis(axis).isInverted
     }

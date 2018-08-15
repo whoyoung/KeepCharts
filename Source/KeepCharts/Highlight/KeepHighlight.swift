@@ -39,7 +39,7 @@ open class KeepHighlight: NSObject
     fileprivate var _stackIndex = Int(-1)
     
     /// the axis the highlighted value belongs to
-    private var _axis: KeepYAxis.AxisDependency = KeepYAxis.AxisDependency.left
+    private var _axis: KeepYAxis.KeepAxisDependency = KeepYAxis.KeepAxisDependency.left
     
     /// the x-position (pixels) on which this highlight object was last drawn
     @objc open var drawX: CGFloat = 0.0
@@ -66,7 +66,7 @@ open class KeepHighlight: NSObject
         dataIndex: Int,
         dataSetIndex: Int,
         stackIndex: Int,
-        axis: KeepYAxis.AxisDependency)
+        axis: KeepYAxis.KeepAxisDependency)
     {
         super.init()
         
@@ -92,7 +92,7 @@ open class KeepHighlight: NSObject
         xPx: CGFloat, yPx: CGFloat,
         dataSetIndex: Int,
         stackIndex: Int,
-        axis: KeepYAxis.AxisDependency)
+        axis: KeepYAxis.KeepAxisDependency)
     {
         self.init(x: x, y: y, xPx: xPx, yPx: yPx,
                   dataIndex: 0,
@@ -113,7 +113,7 @@ open class KeepHighlight: NSObject
         x: Double, y: Double,
         xPx: CGFloat, yPx: CGFloat,
         dataSetIndex: Int,
-        axis: KeepYAxis.AxisDependency)
+        axis: KeepYAxis.KeepAxisDependency)
     {
         super.init()
         
@@ -152,7 +152,7 @@ open class KeepHighlight: NSObject
     @objc open var yPx: CGFloat { return _yPx }
     @objc open var dataSetIndex: Int { return _dataSetIndex }
     @objc open var stackIndex: Int { return _stackIndex }
-    @objc open var axis: KeepYAxis.AxisDependency { return _axis }
+    @objc open var axis: KeepYAxis.KeepAxisDependency { return _axis }
     
     @objc open var isStacked: Bool { return _stackIndex >= 0 }
     

@@ -188,7 +188,7 @@ open class KeepHorizontalBarChartView: KeepRenamedBarChartView
         return bounds
     }
     
-    open override func getPosition(entry e: KeepChartDataEntry, axis: KeepYAxis.AxisDependency) -> CGPoint
+    open override func getPosition(entry e: KeepChartDataEntry, axis: KeepYAxis.KeepAxisDependency) -> CGPoint
     {
         var vals = CGPoint(x: CGFloat(e.y), y: CGFloat(e.x))
         
@@ -253,19 +253,19 @@ open class KeepHorizontalBarChartView: KeepRenamedBarChartView
         viewPortHandler.setMinMaxScaleY(minScaleY: CGFloat(minScale), maxScaleY: CGFloat(maxScale))
     }
     
-    open override func setVisibleYRangeMaximum(_ maxYRange: Double, axis: KeepYAxis.AxisDependency)
+    open override func setVisibleYRangeMaximum(_ maxYRange: Double, axis: KeepYAxis.KeepAxisDependency)
     {
         let yScale = getAxisRange(axis: axis) / maxYRange
         viewPortHandler.setMinimumScaleX(CGFloat(yScale))
     }
     
-    open override func setVisibleYRangeMinimum(_ minYRange: Double, axis: KeepYAxis.AxisDependency)
+    open override func setVisibleYRangeMinimum(_ minYRange: Double, axis: KeepYAxis.KeepAxisDependency)
     {
         let yScale = getAxisRange(axis: axis) / minYRange
         viewPortHandler.setMaximumScaleX(CGFloat(yScale))
     }
     
-    open override func setVisibleYRange(minYRange: Double, maxYRange: Double, axis: KeepYAxis.AxisDependency)
+    open override func setVisibleYRange(minYRange: Double, maxYRange: Double, axis: KeepYAxis.KeepAxisDependency)
     {
         let minScale = getAxisRange(axis: axis) / minYRange
         let maxScale = getAxisRange(axis: axis) / maxYRange

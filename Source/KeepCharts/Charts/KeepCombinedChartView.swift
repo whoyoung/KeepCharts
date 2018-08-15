@@ -19,7 +19,7 @@ open class KeepCombinedChartView: KeepBarLineChartViewBase, KeepCombinedChartDat
     internal var _fillFormatter: KeepIFillFormatter!
     
     /// enum that allows to specify the order in which the different data objects for the combined-chart are drawn
-    @objc(CombinedChartDrawOrder)
+    @objc(KeepCombinedChartDrawOrder)
     public enum DrawOrder: Int
     {
         case bar

@@ -15,8 +15,8 @@ import CoreGraphics
 @objc
 public protocol KeepBarLineScatterCandleBubbleChartDataProvider: KeepChartDataProvider
 {
-    func getTransformer(forAxis: KeepYAxis.AxisDependency) -> KeepTransformer
-    func isInverted(axis: KeepYAxis.AxisDependency) -> Bool
+    func getTransformer(forAxis: KeepYAxis.KeepAxisDependency) -> KeepTransformer
+    func isInverted(axis: KeepYAxis.KeepAxisDependency) -> Bool
     
     var lowestVisibleX: Double { get }
     var highestVisibleX: Double { get }

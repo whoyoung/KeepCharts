@@ -17,5 +17,5 @@ public protocol KeepLineChartDataProvider: KeepBarLineScatterCandleBubbleChartDa
 {
     var lineData: KeepLineChartData? { get }
     
-    func getAxis(_ axis: KeepYAxis.AxisDependency) -> KeepYAxis
+    func getAxis(_ axis: KeepYAxis.KeepAxisDependency) -> KeepYAxis
 }

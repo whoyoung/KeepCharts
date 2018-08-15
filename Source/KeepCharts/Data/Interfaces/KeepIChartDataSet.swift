@@ -161,7 +161,7 @@ public protocol KeepIChartDataSet
     var label: String? { get }
     
     /// The axis this DataSet should be plotted against.
-    var axisDependency: KeepYAxis.AxisDependency { get }
+    var axisDependency: KeepYAxis.KeepAxisDependency { get }
     
     /// List representing all colors that are used for drawing the actual values for this DataSet
     var valueColors: [NSUIColor] { get }

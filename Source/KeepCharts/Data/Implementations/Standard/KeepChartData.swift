@@ -138,7 +138,7 @@ open class KeepChartData: NSObject
     }
     
     /// Adjusts the current minimum and maximum values based on the provided Entry object.
-    @objc open func calcMinMax(entry e: KeepChartDataEntry, axis: KeepYAxis.AxisDependency)
+    @objc open func calcMinMax(entry e: KeepChartDataEntry, axis: KeepYAxis.KeepAxisDependency)
     {
         if _yMax < e.y
         {
@@ -253,7 +253,7 @@ open class KeepChartData: NSObject
         return _yMin
     }
     
-    @objc open func getYMin(axis: KeepYAxis.AxisDependency) -> Double
+    @objc open func getYMin(axis: KeepYAxis.KeepAxisDependency) -> Double
     {
         if axis == .left
         {
@@ -291,7 +291,7 @@ open class KeepChartData: NSObject
         return _yMax
     }
     
-    @objc open func getYMax(axis: KeepYAxis.AxisDependency) -> Double
+    @objc open func getYMax(axis: KeepYAxis.KeepAxisDependency) -> Double
     {
         if axis == .left
         {

@@ -21,7 +21,7 @@ open class KeepZoomViewJob: KeepViewPortJob
 {
     internal var scaleX: CGFloat = 0.0
     internal var scaleY: CGFloat = 0.0
-    internal var axisDependency: KeepYAxis.AxisDependency = .left
+    internal var axisDependency: KeepYAxis.KeepAxisDependency = .left
     
     @objc public init(
         viewPortHandler: KeepViewPortHandler,
@@ -30,7 +30,7 @@ open class KeepZoomViewJob: KeepViewPortJob
         xValue: Double,
         yValue: Double,
         transformer: KeepTransformer,
-        axis: KeepYAxis.AxisDependency,
+        axis: KeepYAxis.KeepAxisDependency,
         view: KeepChartViewBase)
     {
         super.init(
