@@ -261,7 +261,11 @@ open class KeepHorizontalBarChartRenderer: KeepBarChartRenderer
                 context.setFillColor(dataSet.color(atIndex: j).cgColor)
             }
             
-            context.fill(barRect)
+            if dataSet.isStacked == true {
+                context.fill(barRect)
+            } else {
+                self.drawBarShape(context: context, barRect: barRect)
+            }
             
             if drawBorder
             {

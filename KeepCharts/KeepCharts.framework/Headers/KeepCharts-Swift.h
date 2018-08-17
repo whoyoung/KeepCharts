@@ -167,6 +167,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import CoreGraphics;
 @import Foundation;
 @import UIKit;
+@import CoreFoundation;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -1450,6 +1451,9 @@ SWIFT_CLASS("_TtC10KeepCharts20KeepBarChartRenderer")
 - (void)drawValueWithContext:(CGContextRef _Nonnull)context value:(NSString * _Nonnull)value xPos:(CGFloat)xPos yPos:(CGFloat)yPos font:(UIFont * _Nonnull)font align:(NSTextAlignment)align color:(UIColor * _Nonnull)color;
 - (void)drawExtrasWithContext:(CGContextRef _Nonnull)context;
 - (void)drawHighlightedWithContext:(CGContextRef _Nonnull)context indices:(NSArray<KeepChartHighlight *> * _Nonnull)indices;
+- (void)drawBarShapeWithContext:(CGContextRef _Nonnull)context barRect:(CGRect)barRect;
+- (void)drawHighlightBarShapeWithContext:(CGContextRef _Nonnull)context barRect:(CGRect)barRect;
+- (void)drawLinearGradientWithContext:(CGContextRef _Nonnull)context path:(CGMutablePathRef _Nonnull)path colors:(CFArrayRef _Nonnull)colors locations:(NSArray<NSNumber *> * _Nonnull)locations isVerticalGredient:(BOOL)isVerticalGredient;
 - (nonnull instancetype)initWithAnimator:(KeepChartAnimator * _Nonnull)animator viewPortHandler:(KeepChartViewPortHandler * _Nonnull)viewPortHandler SWIFT_UNAVAILABLE;
 @end
 

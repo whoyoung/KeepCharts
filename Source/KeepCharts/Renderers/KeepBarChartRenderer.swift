@@ -309,7 +309,11 @@ open class KeepBarChartRenderer: KeepBarLineScatterCandleBubbleRenderer
                 context.setFillColor(dataSet.color(atIndex: j).cgColor)
             }
             
-            context.fill(barRect)
+            if dataSet.isStacked == true {
+                context.fill(barRect)
+            } else {
+                self.drawBarShape(context: context, barRect: barRect)
+            }
             
             if drawBorder
             {
@@ -676,7 +680,11 @@ open class KeepBarChartRenderer: KeepBarLineScatterCandleBubbleRenderer
                 
                 setHighlightDrawPos(highlight: high, barRect: barRect)
                 
-                context.fill(barRect)
+                if isStack {
+                    context.fill(barRect)
+                } else {
+                    self.drawHighlightBarShape(context: context, barRect: barRect)
+                }
             }
         }
         
@@ -687,5 +695,34 @@ open class KeepBarChartRenderer: KeepBarLineScatterCandleBubbleRenderer
     internal func setHighlightDrawPos(highlight high: KeepHighlight, barRect: CGRect)
     {
         high.setDraw(x: barRect.midX, y: barRect.origin.y)
+    }
+    
+    @objc open func drawBarShape(context: CGContext, barRect: CGRect) -> Void {
+        context.fill(barRect)
+    }
+    
+    @objc open func drawHighlightBarShape(context: CGContext, barRect: CGRect) -> Void {
+        context.fill(barRect)
+    }
+    
+    @objc open func drawLinearGradient(context: CGContext, path: CGMutablePath, colors:CFArray, locations:[CGFloat], isVerticalGredient: Bool) -> Void {
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        
+        let gradient = CGGradient(colorsSpace: colorSpace, colors: colors, locations: locations)
+        let pathRect = path.boundingBoxOfPath
+        let startPoint: CGPoint
+        let endPoint: CGPoint
+        if isVerticalGredient == true {
+            startPoint = CGPoint(x: pathRect.midX, y: pathRect.maxY)
+            endPoint = CGPoint(x: pathRect.midX, y: pathRect.minY)
+        } else {
+            startPoint = CGPoint(x: pathRect.minX, y: pathRect.midY)
+            endPoint = CGPoint(x: pathRect.maxX, y: pathRect.midY)
+        }
+        
+        context.addPath(path)
+        context.clip()
+        context.drawLinearGradient(gradient!, start: startPoint, end: endPoint, options: CGGradientDrawingOptions(rawValue: UInt32(0)))
+        context.restoreGState()
     }
 }
