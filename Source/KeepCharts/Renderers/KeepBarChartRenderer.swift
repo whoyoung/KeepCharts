@@ -311,8 +311,15 @@ open class KeepBarChartRenderer: KeepBarLineScatterCandleBubbleRenderer
             
             if dataSet.isStacked == true {
                 context.fill(barRect)
+            } else if self.dataProvider is KeepChartViewBase {
+                let barChart = self.dataProvider as! KeepChartViewBase
+                if barChart.delegate != nil, barChart.delegate!.drawBarChartShape != nil {
+                    barChart.delegate!.drawBarChartShape!(context: context, barRect: barRect)
+                } else {
+                    context.fill(barRect)
+                }
             } else {
-                self.drawBarShape(context: context, barRect: barRect)
+                context.fill(barRect)
             }
             
             if drawBorder
@@ -682,8 +689,15 @@ open class KeepBarChartRenderer: KeepBarLineScatterCandleBubbleRenderer
                 
                 if isStack {
                     context.fill(barRect)
+                } else if self.dataProvider is KeepChartViewBase {
+                    let barChart = self.dataProvider as! KeepChartViewBase
+                    if barChart.delegate != nil, barChart.delegate!.drawBarChartHighlightShape != nil {
+                        barChart.delegate!.drawBarChartHighlightShape!(context: context, barRect: barRect)
+                    } else {
+                        context.fill(barRect)
+                    }
                 } else {
-                    self.drawHighlightBarShape(context: context, barRect: barRect)
+                    context.fill(barRect)
                 }
             }
         }
@@ -695,14 +709,6 @@ open class KeepBarChartRenderer: KeepBarLineScatterCandleBubbleRenderer
     internal func setHighlightDrawPos(highlight high: KeepHighlight, barRect: CGRect)
     {
         high.setDraw(x: barRect.midX, y: barRect.origin.y)
-    }
-    
-    @objc open func drawBarShape(context: CGContext, barRect: CGRect) -> Void {
-        context.fill(barRect)
-    }
-    
-    @objc open func drawHighlightBarShape(context: CGContext, barRect: CGRect) -> Void {
-        context.fill(barRect)
     }
     
     @objc open func drawLinearGradient(context: CGContext, path: CGMutablePath, colors:CFArray, locations:[CGFloat], isVerticalGredient: Bool) -> Void {

@@ -263,8 +263,15 @@ open class KeepHorizontalBarChartRenderer: KeepBarChartRenderer
             
             if dataSet.isStacked == true {
                 context.fill(barRect)
+            } else if self.dataProvider is KeepChartViewBase {
+                let barChart = self.dataProvider as! KeepChartViewBase
+                if barChart.delegate != nil, barChart.delegate!.drawBarChartShape != nil {
+                    barChart.delegate!.drawBarChartShape!(context: context, barRect: barRect)
+                } else {
+                    context.fill(barRect)
+                }
             } else {
-                self.drawBarShape(context: context, barRect: barRect)
+                context.fill(barRect)
             }
             
             if drawBorder

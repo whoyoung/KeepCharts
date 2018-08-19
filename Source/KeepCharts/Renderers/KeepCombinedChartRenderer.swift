@@ -22,11 +22,6 @@ open class KeepCombinedChartRenderer: KeepDataRenderer
     /// if set to true, a grey area is drawn behind each bar that indicates the maximum value
     @objc open var drawBarShadowEnabled = false
     
-    /**
-     * key's value only can be "bar", "line", "candle", "scatter", "scatter", "bubble"
-     */
-    @objc open var customeChartRenders:[String: KeepDataRenderer]? = [:]
-    
     internal var _renderers = [KeepDataRenderer]()
     
     internal var _drawOrder: [KeepCombinedChartView.DrawOrder] = [.bar, .bubble, .line, .candle, .scatter]
@@ -54,24 +49,14 @@ open class KeepCombinedChartRenderer: KeepDataRenderer
             case .bar:
                 if chart.barData !== nil
                 {
-                    if self.customeChartRenders?["bar"] != nil {
-                        let rendererInstance = self.customeChartRenders!["bar"]
-                        _renderers.append(rendererInstance!)
-                    } else {
-                        _renderers.append(KeepBarChartRenderer(dataProvider: chart, animator: animator, viewPortHandler: viewPortHandler))
-                    }
+                    _renderers.append(KeepBarChartRenderer(dataProvider: chart, animator: animator, viewPortHandler: viewPortHandler))
                 }
                 break
                 
             case .line:
                 if chart.lineData !== nil
                 {
-                    if self.customeChartRenders?["line"] != nil {
-                        let rendererInstance = self.customeChartRenders!["line"]
-                        _renderers.append(rendererInstance!)
-                    } else {
-                        _renderers.append(KeepLineChartRenderer(dataProvider: chart, animator: animator, viewPortHandler: viewPortHandler))
-                    }
+                    _renderers.append(KeepLineChartRenderer(dataProvider: chart, animator: animator, viewPortHandler: viewPortHandler))
                     
                 }
                 break
@@ -79,36 +64,21 @@ open class KeepCombinedChartRenderer: KeepDataRenderer
             case .candle:
                 if chart.candleData !== nil
                 {
-                    if self.customeChartRenders?["candle"] != nil {
-                        let rendererInstance = self.customeChartRenders!["candle"]
-                        _renderers.append(rendererInstance!)
-                    } else {
-                        _renderers.append(KeepCandleStickChartRenderer(dataProvider: chart, animator: animator, viewPortHandler: viewPortHandler))
-                    }
+                    _renderers.append(KeepCandleStickChartRenderer(dataProvider: chart, animator: animator, viewPortHandler: viewPortHandler))
                 }
                 break
                 
             case .scatter:
                 if chart.scatterData !== nil
                 {
-                    if self.customeChartRenders?["scatter"] != nil {
-                        let rendererInstance = self.customeChartRenders!["scatter"]
-                        _renderers.append(rendererInstance!)
-                    } else {
-                        _renderers.append(KeepScatterChartRenderer(dataProvider: chart, animator: animator, viewPortHandler: viewPortHandler))
-                    }
+                    _renderers.append(KeepScatterChartRenderer(dataProvider: chart, animator: animator, viewPortHandler: viewPortHandler))
                 }
                 break
                 
             case .bubble:
                 if chart.bubbleData !== nil
                 {
-                    if self.customeChartRenders?["bubble"] != nil {
-                        let rendererInstance = self.customeChartRenders!["bubble"]
-                        _renderers.append(rendererInstance!)
-                    } else {
-                        _renderers.append(KeepBubbleChartRenderer(dataProvider: chart, animator: animator, viewPortHandler: viewPortHandler))
-                    }
+                    _renderers.append(KeepBubbleChartRenderer(dataProvider: chart, animator: animator, viewPortHandler: viewPortHandler))
                     
                 }
                 break

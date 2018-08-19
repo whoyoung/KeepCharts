@@ -35,6 +35,12 @@ public protocol KeepChartViewDelegate
     
     // Callbacks when the chart is moved / translated via drag gesture.
     @objc optional func chartTranslated(_ chartView: KeepChartViewBase, dX: CGFloat, dY: CGFloat)
+    
+    /// Called when drawning a bar's shape.
+    @objc optional func drawBarChartShape(context: CGContext, barRect: CGRect) -> Void
+    
+    /// Called when drawning a highlight bar's shape.
+    @objc optional func drawBarChartHighlightShape(context: CGContext, barRect: CGRect) -> Void
 }
 
 open class KeepChartViewBase: NSUIView, KeepChartDataProvider, KeepAnimatorDelegate
