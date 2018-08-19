@@ -1451,8 +1451,6 @@ SWIFT_CLASS("_TtC10KeepCharts20KeepBarChartRenderer")
 - (void)drawValueWithContext:(CGContextRef _Nonnull)context value:(NSString * _Nonnull)value xPos:(CGFloat)xPos yPos:(CGFloat)yPos font:(UIFont * _Nonnull)font align:(NSTextAlignment)align color:(UIColor * _Nonnull)color;
 - (void)drawExtrasWithContext:(CGContextRef _Nonnull)context;
 - (void)drawHighlightedWithContext:(CGContextRef _Nonnull)context indices:(NSArray<KeepChartHighlight *> * _Nonnull)indices;
-- (void)drawBarShapeWithContext:(CGContextRef _Nonnull)context barRect:(CGRect)barRect;
-- (void)drawHighlightBarShapeWithContext:(CGContextRef _Nonnull)context barRect:(CGRect)barRect;
 - (void)drawLinearGradientWithContext:(CGContextRef _Nonnull)context path:(CGMutablePathRef _Nonnull)path colors:(CFArrayRef _Nonnull)colors locations:(NSArray<NSNumber *> * _Nonnull)locations isVerticalGredient:(BOOL)isVerticalGredient;
 - (nonnull instancetype)initWithAnimator:(KeepChartAnimator * _Nonnull)animator viewPortHandler:(KeepChartViewPortHandler * _Nonnull)viewPortHandler SWIFT_UNAVAILABLE;
 @end
@@ -2728,6 +2726,10 @@ SWIFT_PROTOCOL("_TtP10KeepCharts21KeepChartViewDelegate_")
 - (void)chartValueNothingSelected:(KeepChartViewBase * _Nonnull)chartView;
 - (void)chartScaled:(KeepChartViewBase * _Nonnull)chartView scaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY;
 - (void)chartTranslated:(KeepChartViewBase * _Nonnull)chartView dX:(CGFloat)dX dY:(CGFloat)dY;
+/// Called when drawning a bar’s shape.
+- (void)drawBarChartShapeWithContext:(CGContextRef _Nonnull)context barRect:(CGRect)barRect;
+/// Called when drawning a highlight bar’s shape.
+- (void)drawBarChartHighlightShapeWithContext:(CGContextRef _Nonnull)context barRect:(CGRect)barRect;
 @end
 
 @protocol KeepIScatterChartDataSet;
@@ -2836,8 +2838,6 @@ SWIFT_CLASS("_TtC10KeepCharts25KeepCombinedChartRenderer")
 @property (nonatomic) BOOL drawValueAboveBarEnabled;
 /// if set to true, a grey area is drawn behind each bar that indicates the maximum value
 @property (nonatomic) BOOL drawBarShadowEnabled;
-/// key’s value only can be “bar”, “line”, “candle”, “scatter”, “scatter”, “bubble”
-@property (nonatomic, copy) NSDictionary<NSString *, KeepChartDataRendererBase *> * _Nullable customeChartRenders;
 - (nonnull instancetype)initWithChart:(KeepCombinedChartView * _Nonnull)chart animator:(KeepChartAnimator * _Nonnull)animator viewPortHandler:(KeepChartViewPortHandler * _Nonnull)viewPortHandler OBJC_DESIGNATED_INITIALIZER;
 - (void)initBuffers SWIFT_METHOD_FAMILY(none);
 - (void)drawDataWithContext:(CGContextRef _Nonnull)context;
