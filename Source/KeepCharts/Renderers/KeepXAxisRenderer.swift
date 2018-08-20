@@ -179,7 +179,7 @@ open class KeepXAxisRenderer: KeepAxisRendererBase
         #endif
         paraStyle.alignment = .center
         
-        let labelAttrs: [NSAttributedStringKey : Any] = [NSAttributedStringKey.font: xAxis.labelFont,
+        var labelAttrs: [NSAttributedStringKey : Any] = [NSAttributedStringKey.font: xAxis.labelFont,
             NSAttributedStringKey.foregroundColor: xAxis.labelTextColor,
             NSAttributedStringKey.paragraphStyle: paraStyle]
         let labelRotationAngleRadians = xAxis.labelRotationAngle.DEG2RAD
@@ -236,6 +236,14 @@ open class KeepXAxisRenderer: KeepAxisRendererBase
                     { // avoid clipping of the first
                         let width = labelns.boundingRect(with: labelMaxSize, options: .usesLineFragmentOrigin, attributes: labelAttrs, context: nil).size.width
                         position.x += width / 2.0
+                    }
+                }
+                
+                if let axis = self.axis as? KeepXAxis {
+                    if axis.selectedLabelTextColor != nil,axis.selectedEntryX?.doubleValue == xAxis.entries[i] {
+                        labelAttrs[NSAttributedStringKey.foregroundColor] = axis.selectedLabelTextColor
+                    } else {
+                        labelAttrs[NSAttributedStringKey.foregroundColor] = axis.labelTextColor
                     }
                 }
                 

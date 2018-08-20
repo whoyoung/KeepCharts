@@ -4608,6 +4608,7 @@ SWIFT_CLASS_NAMED("KeepViewPortHandler")
 
 
 enum KeepXAxisLabelPosition : NSInteger;
+@class NSNumber;
 
 SWIFT_CLASS_NAMED("KeepXAxis")
 @interface KeepChartXAxis : KeepChartAxisBase
@@ -4638,6 +4639,8 @@ SWIFT_CLASS_NAMED("KeepXAxis")
 /// used only when isWordWrapEnabled = true.
 /// <em>default</em>: 1.0
 @property (nonatomic) CGFloat wordWrapWidthPercent;
+@property (nonatomic, strong) NSNumber * _Nullable selectedEntryX;
+@property (nonatomic, strong) UIColor * _Nullable selectedLabelTextColor;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @property (nonatomic, readonly) BOOL isAvoidFirstLastClippingEnabled;
 @end

@@ -61,6 +61,10 @@ open class KeepXAxis: KeepAxisBase
     /// **default**: 1.0
     @objc open var wordWrapWidthPercent: CGFloat = 1.0
     
+    @objc open var selectedEntryX:NSNumber?
+    
+    @objc open var selectedLabelTextColor:UIColor?
+    
     public override init()
     {
         super.init()
