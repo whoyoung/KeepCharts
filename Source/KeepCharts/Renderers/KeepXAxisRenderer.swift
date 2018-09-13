@@ -245,6 +245,12 @@ open class KeepXAxisRenderer: KeepAxisRendererBase
                     } else {
                         labelAttrs[NSAttributedStringKey.foregroundColor] = axis.labelTextColor
                     }
+                    
+                    if axis.selectedLabelFont != nil,axis.selectedEntryX?.doubleValue == xAxis.entries[i] {
+                        labelAttrs[NSAttributedStringKey.font] = axis.selectedLabelFont
+                    } else {
+                        labelAttrs[NSAttributedStringKey.font] = axis.labelFont
+                    }
                 }
                 
                 drawLabel(context: context,

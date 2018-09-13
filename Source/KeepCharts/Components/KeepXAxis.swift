@@ -65,6 +65,8 @@ open class KeepXAxis: KeepAxisBase
     
     @objc open var selectedLabelTextColor:UIColor?
     
+    @objc open var selectedLabelFont:UIFont?
+    
     public override init()
     {
         super.init()

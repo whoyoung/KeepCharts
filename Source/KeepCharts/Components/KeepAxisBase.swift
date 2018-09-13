@@ -238,10 +238,6 @@ open class KeepAxisBase: KeepComponentBase
         {
             _labelCount = newValue
             
-            if _labelCount > axisMaxLabels
-            {
-                _labelCount = axisMaxLabels
-            }
             if _labelCount < axisMinLabels
             {
                 _labelCount = axisMinLabels

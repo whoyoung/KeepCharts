@@ -4641,6 +4641,7 @@ SWIFT_CLASS_NAMED("KeepXAxis")
 @property (nonatomic) CGFloat wordWrapWidthPercent;
 @property (nonatomic, strong) NSNumber * _Nullable selectedEntryX;
 @property (nonatomic, strong) UIColor * _Nullable selectedLabelTextColor;
+@property (nonatomic, strong) UIFont * _Nullable selectedLabelFont;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @property (nonatomic, readonly) BOOL isAvoidFirstLastClippingEnabled;
 @end
