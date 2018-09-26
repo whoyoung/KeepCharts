@@ -151,7 +151,7 @@ open class KeepAxisBase: KeepComponentBase
             return ""
         }
         
-        return valueFormatter?.stringForValue(entries[index], axis: self) ?? ""
+        return valueFormatter?.stringForValue?(entries[index], axis: self) ?? ""
     }
     
     /// Sets the formatter to be used for formatting the axis labels.

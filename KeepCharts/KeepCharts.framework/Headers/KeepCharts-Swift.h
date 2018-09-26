@@ -2947,10 +2947,12 @@ SWIFT_CLASS_NAMED("KeepDataApproximator")
 @end
 
 
+@class NSDictionary;
 
 /// An interface for providing custom axis Strings.
 SWIFT_PROTOCOL_NAMED("KeepIAxisValueFormatter")
 @protocol KeepIChartAxisValueFormatter
+@optional
 /// Called when a value from an axis is formatted before being drawn.
 /// For performance reasons, avoid excessive calculations and memory allocations inside this method.
 /// \param value the value that is currently being drawn
@@ -2961,6 +2963,7 @@ SWIFT_PROTOCOL_NAMED("KeepIAxisValueFormatter")
 /// returns:
 /// The customized label that is drawn on the x-axis.
 - (NSString * _Nonnull)stringForValue:(double)value axis:(KeepChartAxisBase * _Nullable)axis SWIFT_WARN_UNUSED_RESULT;
+- (NSDictionary * _Nonnull)attributeStringForValue:(double)value axis:(KeepChartAxisBase * _Nullable)axis SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class NSNumberFormatter;

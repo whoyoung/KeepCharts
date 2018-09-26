@@ -24,7 +24,10 @@ public protocol  KeepIAxisValueFormatter: class
     /// - parameter value:           the value that is currently being drawn
     /// - parameter axis:            the axis that the value belongs to
     ///
-    func stringForValue(_ value: Double,
+    @objc optional func stringForValue(_ value: Double,
                         axis: KeepAxisBase?) -> String
     
+    @objc optional func attributeStringForValue(_ value: Double,
+                        axis: KeepAxisBase?) -> NSDictionary
+
 }

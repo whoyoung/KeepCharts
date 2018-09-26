@@ -215,7 +215,7 @@ open class KeepXAxisRenderer: KeepAxisRendererBase
             
             if viewPortHandler.isInBoundsX(position.x)
             {
-                let label = xAxis.valueFormatter?.stringForValue(xAxis.entries[i], axis: xAxis) ?? ""
+                let label = xAxis.valueFormatter?.stringForValue?(xAxis.entries[i], axis: xAxis) ?? ""
 
                 let labelns = label as NSString
                 

@@ -54,7 +54,7 @@ open class KeepXAxisRendererRadarChart: KeepXAxisRenderer
         for i in stride(from: 0, to: chart.data?.maxEntryCountSet?.entryCount ?? 0, by: 1)
         {
             
-            let label = xAxis.valueFormatter?.stringForValue(Double(i), axis: xAxis) ?? ""
+            let label = xAxis.valueFormatter?.stringForValue?(Double(i), axis: xAxis) ?? ""
             
             let angle = (sliceangle * CGFloat(i) + chart.rotationAngle).truncatingRemainder(dividingBy: 360.0)
             

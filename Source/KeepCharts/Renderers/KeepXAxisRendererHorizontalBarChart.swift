@@ -148,7 +148,7 @@ open class KeepXAxisRendererHorizontalBarChart: KeepXAxisRenderer
             
             if viewPortHandler.isInBoundsY(position.y)
             {
-                if let label = xAxis.valueFormatter?.stringForValue(xAxis.entries[i], axis: xAxis)
+                if let label = xAxis.valueFormatter?.stringForValue?(xAxis.entries[i], axis: xAxis)
                 {
                     drawLabel(
                         context: context,
